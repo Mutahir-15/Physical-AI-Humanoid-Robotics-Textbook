@@ -11,7 +11,7 @@ const config: Config = {
   url: 'https://Mutahir-15.github.io', // TODO: Update with your actual GitHub username
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/spec-driven-online-hackathon-1/', // TODO: Adjust if deploying to a subpath
+  baseUrl: '/', // TODO: Adjust if deploying to a subpath
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -39,7 +39,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/Mutahir-15/spec-driven-online-hackathon-1/tree/main/', // TODO: Update with your repo path
+            'https://github.com/Physical-AI-Humanoid-Robotics-Textbook/tree/main/', // TODO: Update with your repo path
         },
         blog: {
           showReadingTime: true,
