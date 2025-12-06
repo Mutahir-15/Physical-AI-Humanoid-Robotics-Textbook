@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <world name="my_simple_world">
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Custom Physics Configuration (optional) -->
+    <physics name="default_physics" default="true" type="ode">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>50</iters>
+          <erp>0.2</erp>
+          <cfm>0</cfm>
+          <fmax>0</fmax>
+          <vel>0</vel>
+        </solver>
+        <constraints>
+          <cfm>0</cfm>
+          <erp>0.2</erp>
+        </constraints>
+      </ode>
+    </physics>
+
+    <!-- Spawn your robot here -->
+    <!-- <include>
+      <uri>model://simple_robot</uri>
+      <name>simple_robot_instance</name>
+      <pose>0 0 0.1 0 0 0</pose>
+    </include> -->
+
+  </world>
+</sdf>

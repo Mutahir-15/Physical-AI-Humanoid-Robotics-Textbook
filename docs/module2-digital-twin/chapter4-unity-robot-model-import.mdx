@@ -1,0 +1,76 @@
+---
+title: Unity Robot Model Import
+description: Covering guidance on exporting/importing robot models between Gazebo and Unity (2023 LTS).
+sidebar_position: 4
+---
+
+# Unity Robot Model Import: Bridging Gazebo and Unity
+
+While Gazebo excels in physics-accurate simulation for ROS 2, Unity provides a powerful environment for high-fidelity rendering, advanced visualization, and rich user interfaces. Integrating robot models between these two platforms allows you to leverage the strengths of each. This chapter guides you through the process of exporting robot models from Gazebo (or URDF) and importing them into Unity.
+
+<h2>1. Exporting Models from Gazebo/URDF for Unity</h2>
+
+Unity does not natively support URDF or SDF directly. To import a robot model into Unity, you typically need to convert it into a common 3D asset format like FBX or OBJ.
+
+<h3>Using `urdf_to_scene` or `sdf_to_scene`</h3>
+
+For models defined in URDF or SDF, you can use specialized tools or scripts to convert them into a format that Unity can readily import. One common approach is to use tools that export to glTF (GL Transmission Format), which Unity supports well.
+
+**Conceptual Workflow:**
+
+1.  **URDF/SDF to Collada/FBX/glTF**: Convert your robot's URDF/SDF into an intermediate format.
+    *   **ROS 2 Tools**: Packages like `ros2_description_builder` or `mesh_converter` might offer functionalities to convert URDF to other formats.
+    *   **External Tools**: Software like Blender can import various 3D formats and export to FBX or glTF.
+
+    ```bash
+    # Example: Converting URDF to glTF using a hypothetical script/tool
+    # This is a conceptual command, actual tools may vary
+    urdf_to_gltf simple_robot.urdf output_folder/simple_robot.gltf
+    ```
+
+2.  **Combine Meshes and Textures**: Ensure all mesh files and textures are correctly referenced and packaged.
+
+<h2>2. Importing Models into Unity</h2>
+
+Once you have your robot model in a Unity-compatible format (e.g., FBX, OBJ, glTF), importing it into Unity is straightforward.
+
+<h3>Step-by-Step Import</h3>
+
+1.  **Open Unity Project**: Open your Unity project (Unity 2023 LTS recommended).
+2.  **Import Asset**: Drag and drop your `.fbx`, `.obj`, or `.gltf` file into the `Assets` folder in the Unity editor. Alternatively, go to `Assets > Import New Asset...`
+3.  **Configure Import Settings**:
+    *   **Scale Factor**: Adjust the scale factor to match the units of your original model (ROS typically uses meters, Unity might default to other scales).
+    *   **Materials**: Ensure materials are correctly applied. You might need to extract materials and re-link textures.
+    *   **Animations**: If your model includes animation data, configure its import.
+4.  **Drag to Scene**: Drag the imported model from the `Assets` panel into your Scene hierarchy.
+
+<h2>3. Preparing the Robot for Interaction in Unity</h2>
+
+After importing, you'll need to prepare the model for simulation and interaction within Unity.
+
+<h3>Adding Physics and Colliders</h3>
+
+*   **Rigidbodies**: Add a `Rigidbody` component to the root of your robot model (and potentially to individual links if they need independent physics simulation).
+*   **Colliders**: Attach `Collider` components (Box Collider, Sphere Collider, Capsule Collider, Mesh Collider) to each link to define its physical boundaries for collision detection. Ensure colliders accurately match the visual geometry.
+
+<h3>Setting Up Joints</h3>
+
+Unity has its own joint system (e.g., `Hinge Joint`, `Configurable Joint`, `Fixed Joint`) which can be used to replicate the behavior of your robot's URDF joints.
+
+**Conceptual Joint Setup:**
+
+*   For each joint in your robot, add the corresponding Unity Joint component to the child link.
+*   Configure the joint's `Connected Body` to its parent link.
+*   Set `Axis`, `Limits`, `Motor`, and `Spring` properties to match your robot's specifications.
+
+<h3>ROS-Unity Integration (Conceptual)</h3>
+
+For real-time control and sensor data exchange between ROS 2 and Unity, you would typically use a dedicated ROS-Unity integration package, such as `ROS-TCP-Connector` or `Unity-Robotics-Hub`. These packages provide:
+
+*   **Message Translation**: Convert ROS messages to Unity data structures and vice-versa.
+*   **Communication Layer**: Establish TCP or UDP connections for data exchange.
+*   **Publisher/Subscriber/Service/Action Interfaces**: Allow Unity scripts to act as ROS 2 nodes.
+
+<h2>Conclusion</h2>
+
+Bringing robot models from Gazebo/URDF into Unity unlocks possibilities for enhanced visualization, advanced control, and interactive simulations. By converting models to Unity-compatible formats, configuring physics properties, and setting up joints, you lay the groundwork for a sophisticated digital twin that can be controlled and analyzed with ROS 2 software.

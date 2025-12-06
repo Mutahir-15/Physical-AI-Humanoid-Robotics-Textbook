@@ -58,18 +58,18 @@ Objective: Learners understand ROS 2 fundamentals for humanoid robotics.
 
 Objective: Learners create and interact with digital twins in simulation environments.
 
--   [ ] T019 [US2] Outline Module 2 learning objectives in `docs/module2-digital-twin/_category_.json`.
--   [ ] T020 [US2] Draft `docs/module2-digital-twin/chapter1-advanced-urdf-sdf-modeling.mdx` covering advanced URDF/SDF modeling for humanoids.
--   [ ] T021 [US2] Draft `docs/module2-digital-twin/chapter2-gazebo-environment-physics.mdx` covering environment creation and physics simulation in Gazebo (Garden).
--   [ ] T022 [US2] Draft `docs/module2-digital-twin/chapter3-ros2-gazebo-integration.mdx` covering integrating ROS 2 with Gazebo for simulated robot control.
--   [ ] T023 [US2] Draft `docs/module2-digital-twin/chapter4-unity-robot-model-import.mdx` covering guidance on exporting/importing robot models between Gazebo and Unity (2023 LTS).
--   [ ] T024 [US2] Draft `docs/module2-digital-twin/chapter5-unity-physics-sensors.mdx` covering examples of physics-based interaction and sensor data visualization in Unity.
--   [ ] T025 [P] [US2] Create an advanced URDF/SDF model for a humanoid arm or similar complex structure `static/assets/module2/humanoid_arm.urdf`.
--   [ ] T026 [P] [US2] Develop a Gazebo world file `static/assets/module2/simple_env.world` including objects and physics properties for simulation.
--   [ ] T027 [P] [US2] Develop Python scripts for ROS 2 control of the Gazebo model, demonstrating joint control and sensor reading in `docs/module2-digital-twin/code/gazebo_control.py`.
--   [ ] T028 [P] [US2] Prepare a Unity project with the imported URDF model from T025 and a basic control script for demonstration `static/assets/module2/unity_project/`.
--   [ ] T029 [P] [US2] Create diagrams for advanced URDF structure, Gazebo physics, and Unity integration points for inclusion in `docs/module2-digital-twin/`.
--   [ ] T030 [US2] Verify technical accuracy and reproducibility of Module 2 content, code, and simulations.
+- [x] T019 [US2] Outline Module 2 learning objectives in `docs/module2-digital-twin/_category_.json`.
+- [x] T020 [US2] Draft `docs/module2-digital-twin/chapter1-advanced-urdf-sdf-modeling.mdx` covering advanced URDF/SDF modeling for humanoids.
+- [x] T021 [US2] Draft `docs/module2-digital-twin/chapter2-gazebo-environment-physics.mdx` covering environment creation and physics simulation in Gazebo (Garden).
+- [x] T022 [US2] Draft `docs/module2-digital-twin/chapter3-ros2-gazebo-integration.mdx` covering integrating ROS 2 with Gazebo for simulated robot control.
+- [x] T023 [US2] Draft `docs/module2-digital-twin/chapter4-unity-robot-model-import.mdx` covering guidance on exporting/importing robot models between Gazebo and Unity (2023 LTS).
+- [x] T024 [US2] Draft `docs/module2-digital-twin/chapter5-unity-physics-sensors.mdx` covering examples of physics-based interaction and sensor data visualization in Unity.
+- [x] T025 [P] [US2] Create an advanced URDF/SDF model for a humanoid arm or similar complex structure `static/assets/module2/humanoid_arm.urdf`.
+- [x] T026 [P] [US2] Develop a Gazebo world file `static/assets/module2/simple_env.world` including objects and physics properties for simulation.
+- [x] T027 [P] [US2] Develop Python scripts for ROS 2 control of the Gazebo model, demonstrating joint control and sensor reading in `docs/module2-digital-twin/code/gazebo_control.py`.
+- [x] T028 [P] [US2] Prepare a Unity project with the imported URDF model from T025 and a basic control script for demonstration `static/assets/module2/unity_project/`.
+- [x] T029 [P] [US2] Create diagrams for advanced URDF structure, Gazebo physics, and Unity integration points for inclusion in `docs/module2-digital-twin/`.
+- [x] T030 [US2] Verify technical accuracy and reproducibility of Module 2 content, code, and simulations.
 
 ## Phase 4: Module 3 - The AI-Robot Brain (NVIDIA Isaac) [US3]
 

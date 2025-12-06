@@ -1,0 +1,142 @@
+---
+title: Advanced URDF/SDF Modeling
+description: Covering advanced URDF/SDF modeling for humanoids.
+sidebar_position: 1
+---
+
+# Advanced URDF/SDF Modeling for Humanoids
+
+In Module 1, we introduced basic URDF concepts for describing a simple robot. Now, we'll delve into advanced techniques for modeling more complex robots, specifically humanoids, and introduce **SDF** (Simulation Description Format), which is particularly powerful for defining environments and robot dynamics in simulation environments like Gazebo.
+
+## URDF Revisited: Advanced Features
+
+While URDF is excellent for kinematic and dynamic robot descriptions, especially for use with ROS tools, it has some limitations, suchs as not directly supporting environmental descriptions or multi-robot scenarios. However, for a single robot, we can leverage advanced URDF features:
+
+### 1. Xacro: XML Macros for URDF
+
+Writing large URDF files can become repetitive and difficult to manage. **Xacro** (XML Macros) is an XML macro language that allows you to write more concise and readable URDF files by introducing macros, mathematical expressions, and conditional statements.
+
+**Benefits of Xacro:**
+*   **Modularity**: Define reusable components (e.g., a standard joint, a finger segment).
+*   **Readability**: Avoid repetition and use variables for common parameters (e.g., `PI`, link dimensions).
+*   **Flexibility**: Easily change parameters for different robot configurations.
+
+### Xacro Example (Conceptual)
+
+Instead of manually defining each finger joint, Xacro allows for a more abstract approach:
+
+```xml
+<?xml version="1.0"?>
+<robot name="humanoid_hand" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:property name="finger_length" value="0.1" />
+  <xacro:property name="finger_radius" value="0.01" />
+
+  <xacro:macro name="finger_segment" params="prefix parent_link_name origin_xyz">
+    <link name="${prefix}_link">
+      <visual>
+        <geometry><cylinder radius="${finger_radius}" length="${finger_length}"/></geometry>
+        <material name="grey"/>
+      </visual>
+      <collision>
+        <geometry><cylinder radius="${finger_radius}" length="${finger_length}"/></geometry>
+      </collision>
+      <inertial>
+        <mass value="0.01"/>
+        <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001"/>
+      </inertial>
+    </link>
+
+    <joint name="${prefix}_joint" type="revolute">
+      <parent link="${parent_link_name}"/>
+      <child link="${prefix}_link"/>
+      <origin xyz="${origin_xyz}" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+      <limit lower="-1.57" upper="1.57" effort="100" velocity="10"/>
+    </joint>
+  </xacro:macro>
+
+  <link name="palm_link">
+    <!-- ... palm definition ... -->
+  </link>
+
+  <xacro:finger_segment prefix="thumb" parent_link_name="palm_link" origin_xyz="0 0.05 0"/>
+  <xacro:finger_segment prefix="index" parent_link_name="palm_link" origin_xyz="0 0 0"/>
+  <!-- ... more fingers ... -->
+
+</robot>
+```
+
+## Simulation Description Format (SDF)
+
+**SDF** is another XML format used in robotics, particularly with Gazebo. While URDF excels at describing a single robot, SDF is designed to describe everything in a simulation environment: robots, static objects (like walls and furniture), sensors, lights, and even the physics properties of the world.
+
+**Key Differences from URDF:**
+*   **Environmental Description**: SDF can describe entire worlds, not just robots.
+*   **Complete Physics**: SDF includes more comprehensive physics properties (e.g., friction coefficients, joint dynamics for simulation).
+*   **Sensor Definitions**: Directly supports advanced sensor models.
+*   **Multi-robot Support**: Easily integrate multiple robots and static objects.
+
+### SDF Structure (High-level)
+
+An SDF file starts with an `<sdf>` tag, containing `<world>` and/or `<model>` tags.
+
+```xml
+<?xml version="1.0"?>
+<sdf version="1.8">
+  <world name="empty_world">
+    <light name="sun" type="directional">
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><plane><normal>0 0 1</normal><size>100 100</size></plane></geometry>
+          <surface><friction><ode><mu>1.0</mu><mu2>1.0</mu2></ode></friction></surface>
+        </collision>
+        <visual name="visual">
+          <geometry><plane><normal>0 0 1</normal><size>100 100</size></plane></geometry>
+          <material><ambient>0.8 0.8 0.8 1</ambient><diffuse>0.8 0.8 0.8 1</diffuse><specular>0.8 0.8 0.8 1</specular></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Robots and other objects can be included here -->
+    <!-- <include>
+      <uri>model://my_humanoid_robot</uri>
+    </include> -->
+
+  </world>
+</sdf>
+```
+
+## Converting Between URDF and SDF
+
+It's common to design robots using URDF (especially for ROS integration) and then convert them to SDF for Gazebo simulation. Tools like `urdf2sdf` (part of `ros_gz_bridge`) can perform this conversion.
+
+```bash
+ros2 run urdf_to_sdf urdf_to_sdf your_robot.urdf your_robot.sdf
+```
+
+This conversion allows you to leverage the strengths of both formats.
+
+## Conclusion
+
+Mastering advanced URDF features like Xacro, and understanding the capabilities of SDF, are crucial for accurately modeling complex humanoid robots and their environments in simulation. These tools provide the granularity needed to define intricate robot kinematics, dynamics, visual appearance, and interaction with the physical world, setting the stage for realistic digital twins.
