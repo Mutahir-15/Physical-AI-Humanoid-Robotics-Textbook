@@ -73,12 +73,6 @@ const config: Config = {
           position: 'left',
           label: 'Book',
         },
-        { to: '/blog', label: 'Blog', position: 'left' },
-        {
-          href: 'https://github.com/facebook/docusaurus', // TODO: Update with your GitHub repo
-          label: 'GitHub',
-          position: 'right',
-        },
       ],
     },
     footer: {
