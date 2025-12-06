@@ -32,26 +32,26 @@ Objective: Setup core project infrastructure and content framework.
 
 Objective: Learners understand ROS 2 fundamentals for humanoid robotics.
 
--   [ ] T008 [US1] Outline Module 1 learning objectives in `docs/module1-ros2/_category_.json`.
--   [ ] T009 [US1] Draft `docs/module1-ros2/chapter1-introduction-to-ros2.mdx` covering ROS 2 concepts and architecture (nodes, topics, services, actions).
+- [x] T008 [US1] Outline Module 1 learning objectives in `docs/module1-ros2/_category_.json`.
+- [x] T009 [US1] Draft `docs/module1-ros2/chapter1-introduction-to-ros2.mdx` covering ROS 2 concepts and architecture (nodes, topics, services, actions).
     *   *Acceptance Criteria*: Explanations are clear, technically accurate, and introduce key terminology.
--   [ ] T010 [US1] Draft `docs/module1-ros2/chapter2-ros2-communication-patterns.mdx` covering publishing/subscribing to topics with Python (rclpy).
+- [x] T010 [US1] Draft `docs/module1-ros2/chapter2-ros2-communication-patterns.mdx` covering publishing/subscribing to topics with Python (rclpy).
     *   *Acceptance Criteria*: Includes pseudo-code for communication logic.
--   [ ] T011 [US1] Draft `docs/module1-ros2/chapter3-ros2-services-actions.mdx` covering calling/providing services and actions with Python (rclpy).
+- [x] T011 [US1] Draft `docs/module1-ros2/chapter3-ros2-services-actions.mdx` covering calling/providing services and actions with Python (rclpy).
     *   *Acceptance Criteria*: Includes pseudo-code for service/action interaction.
--   [ ] T012 [US1] Draft `docs/module1-ros2/chapter4-robot-description-with-urdf.mdx` covering basic robot state publishing (TF2) and URDF concepts.
+- [x] T012 [US1] Draft `docs/module1-ros2/chapter4-robot-description-with-urdf.mdx` covering basic robot state publishing (TF2) and URDF concepts.
     *   *Acceptance Criteria*: Introduces URDF elements and TF2 concepts.
--   [ ] T013 [P] [US1] Develop Python code examples for publisher and subscriber nodes in `docs/module1-ros2/code/publisher_node.py` and `docs/module1-ros2/code/subscriber_node.py`.
+- [x] T013 [P] [US1] Develop Python code examples for publisher and subscriber nodes in `docs/module1-ros2/code/publisher_node.py` and `docs/module1-ros2/code/subscriber_node.py`.
     *   *Acceptance Criteria*: Code is functional, well-commented, and aligns with explanations.
--   [ ] T014 [P] [US1] Develop Python code examples for service server and client in `docs/module1-ros2/code/service_server.py` and `docs/module1-ros2/code/service_client.py`.
+- [x] T014 [P] [US1] Develop Python code examples for service server and client in `docs/module1-ros2/code/service_server.py` and `docs/module1-ros2/code/service_client.py`.
     *   *Acceptance Criteria*: Code is functional, demonstrates service/action patterns, and aligns with explanations.
--   [ ] T015 [P] [US1] Create a basic URDF model `static/assets/module1/simple_robot.urdf` and an accompanying Python TF2 broadcaster `docs/module1-ros2/code/tf2_broadcaster.py`.
+- [x] T015 [P] [US1] Create a basic URDF model `static/assets/module1/simple_robot.urdf` and an accompanying Python TF2 broadcaster `docs/module1-ros2/code/tf2_broadcaster.py`.
     *   *Acceptance Criteria*: URDF is valid, TF2 broadcaster publishes correct frames.
--   [ ] T016 [P] [US1] Create diagrams for ROS 2 architecture, node graph, and communication patterns for inclusion in `docs/module1-ros2/`.
+- [x] T016 [P] [US1] Create diagrams for ROS 2 architecture, node graph, and communication patterns for inclusion in `docs/module1-ros2/`.
     *   *Acceptance Criteria*: Diagrams are clear, visually appealing, and enhance understanding.
--   [ ] T017 [US1] Prepare step-by-step simulation instructions for basic robot control (moving joints/base) in a simulated environment (e.g., Gazebo or Rviz), referencing `static/assets/module1/`.
+- [x] T017 [US1] Prepare step-by-step simulation instructions for basic robot control (moving joints/base) in a simulated environment (e.g., Gazebo or Rviz), referencing `static/assets/module1/`.
     *   *Acceptance Criteria*: Instructions are clear, precise, and lead to reproducible results.
--   [ ] T018 [US1] Conduct technical and editorial review of all Module 1 content, code, and simulations for accuracy, clarity, and consistency.
+- [x] T018 [US1] Conduct technical and editorial review of all Module 1 content, code, and simulations for accuracy, clarity, and consistency.
     *   *Acceptance Criteria*: All feedback resolved; content adheres to constitution principles.
 
 ## Phase 3: Module 2 - The Digital Twin (Gazebo & Unity) [US2]

@@ -1,0 +1,104 @@
+---
+title: Basic Robot Control in Simulation
+description: Step-by-step simulation instructions for basic robot control (moving joints/base) in a simulated environment (e.g., Gazebo or Rviz).
+sidebar_position: 5
+---
+
+# Basic Robot Control in Simulation
+
+This chapter provides step-by-step instructions for controlling a basic robot model within a simulated environment. We will focus on fundamental operations such as moving individual joints and controlling the robot's base, leveraging the ROS 2 tools and concepts discussed in previous chapters, along with common simulation platforms like Gazebo or Rviz.
+
+## Prerequisites
+
+Before proceeding, ensure you have:
+
+*   A working ROS 2 environment (Humble or Iron recommended).
+*   Gazebo and/or Rviz installed and configured for ROS 2.
+*   The `simple_robot.urdf` model from `static/assets/module1/` available.
+*   The `tf2_broadcaster.py` node developed in `docs/module1-ros2/code/`.
+
+## 1. Launching the Robot Model in Rviz
+
+Rviz (ROS Visualization) is a 3D visualizer for ROS 2. It's excellent for visualizing robot models, sensor data, and the TF2 tree.
+
+### Step-by-Step Instructions
+
+1.  **Ensure `robot_state_publisher` is running**: This node reads your URDF file and publishes the robot's joint states as TF2 transforms. You'll typically launch this using a ROS 2 launch file.
+    ```bash
+    ros2 launch urdf_tutorial display.launch.py model:=$(ros2 pkg prefix your_package_name)/share/your_package_name/urdf/simple_robot.urdf
+    ```
+    *(Note: Replace `your_package_name` and adjust the path to your URDF)*
+2.  **Launch Rviz**: Open Rviz and add `RobotModel` and `TF` displays. Configure the `Fixed Frame` to `base_link` or `world` (depending on your setup).
+    ```bash
+    ros2 run rviz2 rviz2
+    ```
+3.  **Run your TF2 broadcaster**: If you created a static TF2 broadcaster (e.g., `tf2_broadcaster.py`), run it to see additional frames.
+    ```bash
+    ros2 run your_package_name tf2_broadcaster_node
+    ```
+
+## 2. Basic Joint Control in Simulation (Gazebo)
+
+Gazebo is a powerful 3D robotics simulator that allows you to accurately simulate a robot's dynamics, sensors, and environment.
+
+### Step-by-Step Instructions
+
+1.  **Launch Gazebo with your robot model**: This typically involves a launch file that starts Gazebo and spawns your URDF model into the simulation.
+    ```bash
+    ros2 launch gazebo_ros gazebo.launch.py # To launch empty Gazebo world
+    ros2 run gazebo_ros spawn_entity.py -entity simple_robot -file $(ros2 pkg prefix your_package_name)/share/your_package_name/urdf/simple_robot.urdf -x 0 -y 0 -z 0.1
+    ```
+    *(Note: You might need specific Gazebo ROS 2 packages and a more complex launch file for proper joint control.)*
+2.  **Control Joints via ROS 2 topics**: For robots with defined joints, you can publish commands to their respective joint control topics. This often involves `ros2_control` or similar joint interface controllers.
+    *   **Example (conceptual):** Publish a `std_msgs/Float64` to a `/joint_name/command` topic to set a joint's position.
+    ```python
+    # Pseudo-code for a joint controller publisher node
+    import rclpy
+    from rclpy.node import Node
+    from std_msgs.msg import Float64
+
+    class JointController(Node):
+        def __init__(self):
+            super().__init__('joint_controller')
+            self.publisher_ = self.create_publisher(Float64, '/my_robot_joint/command', 10)
+            self.timer = self.create_timer(1.0, self.timer_callback)
+            self.position = 0.0
+
+        def timer_callback(self):
+            self.position = -self.position if self.position != 0 else 1.0 # Toggle position
+            msg.data = self.position
+            self.publisher_.publish(msg)
+            self.get_logger().info(f'Setting joint to: {msg.data}')
+
+    def main(args=None):
+        rclpy.init(args=args)
+        joint_controller = JointController()
+        rclpy.spin(joint_controller)
+        joint_controller.destroy_node()
+        rclpy.shutdown()
+
+    if __name__ == '__main__':
+        main()
+    ```
+    *(Note: The actual topic names and message types depend on the specific joint controller setup in Gazebo.)*
+
+## 3. Controlling the Robot Base
+
+For mobile robots, controlling the base typically involves publishing `geometry_msgs/Twist` messages to a `/cmd_vel` topic. This message contains linear and angular velocity commands.
+
+### Step-by-Step Instructions
+
+1.  **Ensure a velocity controller is running**: In Gazebo, your robot model needs a differential drive or similar plugin that subscribes to `/cmd_vel` and translates these commands into wheel velocities.
+2.  **Publish `Twist` messages**: You can use the `ros2 topic pub` command or a Python node.
+    ```bash
+    # Example: Move forward at 0.1 m/s
+    ros2 topic pub --once /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}"
+    
+    # Example: Rotate counter-clockwise at 0.5 rad/s
+    ros2 topic pub --once /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.5}}"
+    ```
+    *(Note: You can also create a Python publisher node similar to the `SimplePublisher` to send continuous `Twist` commands.)*
+
+## Conclusion
+
+This chapter provided a foundational understanding and initial steps for controlling robot models within ROS 2 simulated environments. By launching Rviz, controlling individual joints, and commanding the robot's base, you can begin to interact with and test your robotic systems virtually. As we progress, these basic control methods will be expanded upon for more complex humanoid behaviors.

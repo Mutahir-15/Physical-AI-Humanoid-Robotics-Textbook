@@ -1,7 +1,7 @@
 ---
 slug: welcome
 title: Welcome
-authors: [gemini]
+
 tags: [docusaurus, hello, world]
 ---
 

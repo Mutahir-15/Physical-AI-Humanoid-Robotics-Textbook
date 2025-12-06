@@ -1,0 +1,110 @@
+---
+title: ROS 2 Communication Patterns
+description: Covering publishing/subscribing to topics with Python (rclpy).
+sidebar_position: 2
+---
+
+# ROS 2 Communication Patterns: Publishing and Subscribing
+
+In the previous chapter, we introduced the fundamental concepts of ROS 2, including nodes and topics. This chapter dives deeper into the most common communication pattern in ROS 2: publishing and subscribing to topics. This asynchronous, one-to-many communication model is crucial for distributing data throughout your robotic system.
+
+## The Publish-Subscribe Model
+
+The publish-subscribe pattern allows different nodes to exchange information without needing direct knowledge of each other. A *publisher* node sends messages to a named *topic*, and any *subscriber* nodes interested in that data can listen to the same topic to receive those messages.
+
+### Key Components
+
+*   **Topic**: A named channel over which messages are exchanged. Think of it as a broadcast channel.
+*   **Message**: The actual data structure being sent. Messages have a defined type (e.g., `std_msgs/String`, `sensor_msgs/Image`) that dictates their content.
+*   **Publisher**: A node that creates and sends messages to a specific topic.
+*   **Subscriber**: A node that listens to a specific topic and processes incoming messages.
+
+## Implementing Publishers in Python (rclpy)
+
+Using `rclpy`, the Python client library for ROS 2, implementing a publisher involves a few key steps:
+
+1.  **Import `rclpy` and message type**: Import the necessary ROS 2 Python client library and the type of message you intend to publish.
+2.  **Create a node**: Every ROS 2 component runs within a node.
+3.  **Create a publisher**: Instantiate a publisher for a specific topic and message type.
+4.  **Publish messages**: Periodically or upon an event, create a message and publish it.
+
+### Pseudo-code for a Simple Publisher
+
+This pseudo-code demonstrates how a node might continuously publish a string message to a topic.
+
+```python
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String # Example message type
+
+class SimplePublisher(Node):
+    def __init__(self):
+        super().__init__('simple_publisher_node')
+        self.publisher_ = self.create_publisher(String, 'my_topic', 10) # Topic name, message type, queue size
+        timer_period = 0.5  # seconds
+        self.timer = self.create_timer(timer_period, self.timer_callback)
+        self.i = 0
+
+    def timer_callback(self):
+        msg = String()
+        msg.data = f'Hello ROS 2 World: {self.i}'
+        self.publisher_.publish(msg)
+        self.get_logger().info(f'Publishing: "{msg.data}"')
+        self.i += 1
+
+def main(args=None):
+    rclpy.init(args=args)
+    minimal_publisher = SimplePublisher()
+    rclpy.spin(minimal_publisher) # Keep node alive until Ctrl+C
+    minimal_publisher.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
+```
+
+## Implementing Subscribers in Python (rclpy)
+
+Similarly, a subscriber node in `rclpy` performs the following actions:
+
+1.  **Import `rclpy` and message type**: Just like the publisher, import the necessary libraries and the message type it expects to receive.
+2.  **Create a node**: All ROS 2 components need a node.
+3.  **Create a subscriber**: Instantiate a subscriber for a specific topic and message type, and provide a callback function.
+4.  **Process incoming messages**: The callback function will be executed every time a new message is received on the subscribed topic.
+
+### Pseudo-code for a Simple Subscriber
+
+This pseudo-code illustrates a node subscribing to the topic from the `SimplePublisher` and printing the received messages.
+
+```python
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String # Example message type
+
+class SimpleSubscriber(Node):
+    def __init__(self):
+        super().__init__('simple_subscriber_node')
+        self.subscription = self.create_subscription(
+            String,
+            'my_topic', # Must match the publisher's topic name
+            self.listener_callback,
+            10) # Queue size
+        self.subscription  # prevent unused variable warning
+
+    def listener_callback(self, msg):
+        self.get_logger().info(f'I heard: "{msg.data}"')
+
+def main(args=None):
+    rclpy.init(args=args)
+    minimal_subscriber = SimpleSubscriber()
+    rclpy.spin(minimal_subscriber) # Keep node alive until Ctrl+C
+    minimal_subscriber.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
+```
+
+## Conclusion
+
+The publish-subscribe communication pattern is a cornerstone of ROS 2, enabling robust and scalable data flow between decoupled nodes. By mastering the implementation of publishers and subscribers using `rclpy`, you are well on your way to building sophisticated robotic applications. In the next chapter, we will explore synchronous communication using services and actions.

@@ -1,0 +1,159 @@
+---
+title: Robot Description with URDF and TF2
+description: Covering basic robot state publishing (TF2) and URDF concepts.
+sidebar_position: 4
+---
+
+# Robot Description with URDF and TF2
+
+To effectively control and simulate robots, we need a way to describe their physical characteristics and how their components are connected. ROS 2 leverages two key tools for this: **URDF** (Unified Robot Description Format) for defining the robot's structure, and **TF2** (ROS 2 Transformations) for managing coordinate frames and robot state in real-time.
+
+## Unified Robot Description Format (URDF)
+
+URDF is an XML-based file format used in ROS to describe all aspects of a robot. It's primarily used for representing the kinematic and dynamic properties of a robot, as well as its visual and collision properties. A URDF file defines:
+
+*   **Links**: These represent the rigid parts of the robot (e.g., a robot's arm segment, a wheel, the base). Each link has properties like mass, inertia, visual appearance (color, mesh), and collision geometry.
+*   **Joints**: These define how links are connected to each other and their type of motion (e.g., revolute for rotation, prismatic for linear movement, fixed for rigid connections). Joints specify the axis of rotation/translation, limits, and dynamics.
+
+### Basic URDF Structure
+
+A URDF file starts with a `<robot>` tag, containing multiple `<link>` and `<joint>` tags.
+
+```xml
+<?xml version="1.0"?>
+<robot name="simple_robot">
+
+  <!-- Base Link -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.05"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.1 0.1 0.05"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+  </link>
+
+  <!-- Joint between base and wheel -->
+  <joint name="base_to_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="wheel_link"/>
+    <origin xyz="0 0 0.05" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <!-- Wheel Link -->
+  <link name="wheel_link">
+    <visual>
+      <geometry>
+        <cylinder radius="0.03" length="0.02"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.03" length="0.02"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+    </inertial>
+  </link>
+
+</robot>
+```
+
+This simplified URDF describes a robot with a `base_link` and a `wheel_link` connected by a `continuous` joint.
+
+## TF2: Managing Coordinate Frames
+
+Robots are complex systems with multiple moving parts, sensors, and actuators. Each of these components can have its own coordinate frame. **TF2** is a system that keeps track of multiple coordinate frames and the relationships between them over time. It allows you to ask questions like: "Where is the camera relative to the robot's base?" or "What is the position of the end-effector in the world frame?"
+
+TF2 provides two main functionalities:
+
+1.  **Broadcasting transforms**: Publishing the relationships between coordinate frames (e.g., the position and orientation of a sensor relative to its attached link).
+2.  **Listening for transforms**: Receiving and using these transformations to convert data between different coordinate frames.
+
+### Coordinate Frames
+
+A **coordinate frame** is a reference system used to describe positions and orientations. In robotics, common frames include:
+
+*   **`world` frame**: A fixed, global reference frame.
+*   **`base_link` frame**: The main frame of the robot, often at its center or base.
+*   **`camera_link` frame**: The frame associated with a camera sensor.
+*   **`end_effector_link` frame**: The frame at the tip of a robotic arm.
+
+### Basic TF2 Concepts
+
+*   **Transform**: A mathematical representation of the relationship between two coordinate frames (translation and rotation).
+*   **Static Transform**: A transform that does not change over time (e.g., a camera mounted rigidly to a robot link).
+*   **Dynamic Transform**: A transform that changes over time (e.g., a robot's base moving in the world).
+
+### Publishing Basic Robot State with TF2
+
+A common task is to publish the static transforms of a robot's links as defined in a URDF, and its dynamic state (like the robot's position in the world). This is often done by a `robot_state_publisher` node (for URDF) and an `odometry` node (for dynamic transforms).
+
+Here's pseudo-code for a simple TF2 broadcaster that publishes a static transform.
+
+```python
+import rclpy
+from rclpy.node import Node
+from geometry_msgs.msg import TransformStamped
+from tf2_ros import StaticTransformBroadcaster
+import tf_transformations
+
+class StaticFramePublisher(Node):
+    def __init__(self):
+        super().__init__('static_broadcaster')
+
+        self.tf_static_broadcaster = StaticTransformBroadcaster(self)
+
+        # Create a static transform from 'base_link' to 'camera_link'
+        static_transform_stamped = TransformStamped()
+        static_transform_stamped.header.stamp = self.get_clock().now().to_msg()
+        static_transform_stamped.header.frame_id = 'base_link'
+        static_transform_stamped.child_frame_id = 'camera_link'
+        static_transform_stamped.transform.translation.x = 0.1
+        static_transform_stamped.transform.translation.y = 0.0
+        static_transform_stamped.transform.translation.z = 0.2
+
+        quat = tf_transformations.quaternion_from_euler(0.0, 0.0, 0.0)
+        static_transform_stamped.transform.rotation.x = quat[0]
+        static_transform_stamped.transform.rotation.y = quat[1]
+        static_transform_stamped.transform.rotation.z = quat[2]
+        static_transform_stamped.transform.rotation.w = quat[3]
+
+        self.tf_static_broadcaster.sendTransform(static_transform_stamped)
+        self.get_logger().info('Published static transform from base_link to camera_link')
+
+def main():
+    rclpy.init()
+    node = StaticFramePublisher()
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
+```
+
+## Conclusion
+
+URDF provides a standardized way to describe your robot's physical structure, while TF2 allows you to keep track of and utilize the spatial relationships between all its components. Together, these tools form the backbone of robot modeling and state representation in ROS 2, essential for any advanced robotic application. In the next steps, we will develop actual Python code examples and create a basic URDF model.
