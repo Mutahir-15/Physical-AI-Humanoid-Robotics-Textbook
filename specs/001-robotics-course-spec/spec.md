@@ -89,6 +89,10 @@ A learner wants to apply all learned concepts to build a fully autonomous humano
 - Q: Quantify "Basic" Knowledge? → A: Option A (Python: variables, loops, functions, classes. Robotics: basic kinematics.)
 - Note: Code snippets provided by the user are for informational context.
 
+### Session 2025-12-06
+
+- Q: What is the minimum set of robotic actions to demonstrate for natural language commands in Module 4? → A: Pick, Place, Navigate
+
 ## Requirements (mandatory)
 
 The specification aligns with the Constitution principles: "Technical Accuracy and Rigor", "Practical, Simulation-First Learning", "Clear and Consistent Content", "Modular and Structured Design", and "Capstone-Driven Progression".
@@ -138,7 +142,7 @@ The specification aligns with the Constitution principles: "Technical Accuracy a
 #### Module 4: Vision-Language-Action (VLA Robotics)
 
 -   **FR-M4-001**: Module 4 MUST cover the integration of voice-to-text (e.g., Whisper) and large language models (LLMs) for high-level command interpretation.
--   **FR-M4-002**: Module 4 MUST demonstrate translating natural language commands into a sequence of discrete robotic actions (e.g., pick, place, navigate).
+-   **FR-M4-002**: Module 4 MUST demonstrate translating natural language commands into a sequence of discrete robotic actions (minimum: Pick, Place, Navigate).
 -   **FR-M4-003**: Module 4 MUST include examples of combining vision (from Isaac or other sources) with language understanding to achieve goal-oriented tasks.
 -   **FR-M4-004**: Module 4 MUST cover reactive control strategies for VLA systems.
 

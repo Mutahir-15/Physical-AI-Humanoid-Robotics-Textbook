@@ -1,0 +1,9 @@
+{
+  "label": "Module 4: Vision-Language-Action (VLA Robotics)",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "title": "Module 4 Overview",
+    "description": "Learners connect vision, language, and action into a cohesive system for humanoid robotics."
+  }
+}

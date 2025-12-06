@@ -90,16 +90,16 @@ Objective: Learners integrate advanced AI capabilities into their simulated huma
 
 Objective: Learners connect vision, language, and action into a cohesive system for humanoid robotics.
 
--   [ ] T041 [US4] Outline Module 4 learning objectives in `docs/module4-vla/_category_.json`.
--   [ ] T042 [US4] Draft `docs/module4-vla/chapter1-voice-llm-integration.mdx` covering integration of voice-to-text (Whisper) and LLMs for high-level command interpretation.
--   [ ] T043 [US4] Draft `docs/module4-vla/chapter2-natural-language-to-robot-actions.mdx` covering translating natural language commands into sequences of discrete robotic actions.
--   [ ] T044 [US4] Draft `docs/module4-vla/chapter3-combining-vision-language.mdx` covering combining vision (from Isaac or other sources) with language understanding for goal-oriented tasks.
--   [ ] T045 [US4] Draft `docs/module4-vla/chapter4-reactive-control-strategies.mdx` covering reactive control strategies for VLA systems.
--   [ ] T046 [P] [US4] Develop Python script for Whisper integration with a simulated humanoid `docs/module4-vla/code/whisper_interface.py`.
--   [ ] T047 [P] [US4] Develop Python script for LLM command interpretation and generation of ROS 2 actions for a simulated humanoid `docs/module4-vla/code/llm_ros_interface.py`.
--   [ ] T048 [P] [US4] Develop Python script demonstrating combined vision-language task execution `docs/module4-vla/code/vla_task_executor.py`.
--   [ ] T049 [P] [US4] Create diagrams for the VLA pipeline and data flow for `docs/module4-vla/`.
--   [ ] T050 [US4] Verify technical accuracy and reproducibility of Module 4 content, code, and simulations.
+- [x] T041 [US4] Outline Module 4 learning objectives in `docs/module4-vla/_category_.json`.
+- [x] T042 [US4] Draft `docs/module4-vla/chapter1-voice-llm-integration.mdx` covering integration of voice-to-text (Whisper) and LLMs for high-level command interpretation.
+- [x] T043 [US4] Draft `docs/module4-vla/chapter2-natural-language-to-robot-actions.mdx` covering translating natural language commands into sequences of discrete robotic actions.
+- [x] T044 [US4] Draft `docs/module4-vla/chapter3-combining-vision-language.mdx` covering combining vision (from Isaac or other sources) with language understanding for goal-oriented tasks.
+- [x] T045 [US4] Draft `docs/module4-vla/chapter4-reactive-control-strategies.mdx` covering reactive control strategies for VLA systems.
+- [x] T046 [P] [US4] Develop Python script for Whisper integration with a simulated humanoid `docs/module4-vla/code/whisper_interface.py`.
+- [x] T047 [P] [US4] Develop Python script for LLM command interpretation and generation of ROS 2 actions for a simulated humanoid `docs/module4-vla/code/llm_ros_interface.py`.
+- [x] T048 [P] [US4] Develop Python script demonstrating combined vision-language task execution `docs/module4-vla/code/vla_task_executor.py`.
+- [x] T049 [P] [US4] Create diagrams for the VLA pipeline and data flow for `docs/module4-vla/`.
+- [x] T050 [US4] Verify technical accuracy and reproducibility of Module 4 content, code, and simulations.
 
 ## Phase 6: Capstone Integration [US5]
 
