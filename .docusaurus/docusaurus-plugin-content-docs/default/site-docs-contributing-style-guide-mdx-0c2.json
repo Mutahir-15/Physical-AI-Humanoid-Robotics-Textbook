@@ -1,0 +1,20 @@
+{
+  "id": "contributing/style-guide",
+  "title": "Content Style Guide",
+  "description": "This guide outlines the conventions and best practices for creating content for the \"Physical AI & Humanoid Robotics Course\" book. Adhering to these guidelines ensures consistency, clarity, and a high-quality learning experience for our readers.",
+  "source": "@site/docs/contributing/style-guide.mdx",
+  "sourceDirName": "contributing",
+  "slug": "/contributing/style-guide",
+  "permalink": "/docs/contributing/style-guide",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/contributing/style-guide.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "courseSidebar",
+  "previous": {
+    "title": "Welcome to the Robotics Course",
+    "permalink": "/docs/intro"
+  }
+}

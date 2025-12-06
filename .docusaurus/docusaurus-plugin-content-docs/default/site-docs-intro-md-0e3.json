@@ -1,0 +1,23 @@
+{
+  "id": "intro",
+  "title": "Welcome to the Robotics Course",
+  "description": "This is the introduction to the Physical AI & Humanoid Robotics Course.",
+  "source": "@site/docs/intro.md",
+  "sourceDirName": ".",
+  "slug": "/intro",
+  "permalink": "/docs/intro",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/intro.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "courseSidebar",
+  "next": {
+    "title": "Content Style Guide",
+    "permalink": "/docs/contributing/style-guide"
+  }
+}

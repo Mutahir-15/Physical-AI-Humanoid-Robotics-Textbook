@@ -1,0 +1,103 @@
+# Content Style Guide
+
+This guide outlines the conventions and best practices for creating content for the "Physical AI & Humanoid Robotics Course" book. Adhering to these guidelines ensures consistency, clarity, and a high-quality learning experience for our readers.
+
+## 1. Docusaurus MDX Workflow
+
+Our book uses Docusaurus, which supports MDX (Markdown with JSX) for content creation. This allows you to embed React components directly within your Markdown files, enabling rich and interactive content.
+
+### File Naming Conventions
+
+*   All content files should use the `.mdx` extension.
+*   File names should be `kebab-case` (e.g., `chapter1-introduction-to-ros2.mdx`).
+*   Directory names for modules and chapters should also be `kebab-case`.
+
+### Front Matter
+
+Each MDX file must start with YAML front matter, enclosed by `---`, to define metadata.
+Example:
+
+```yaml
+---
+title: Introduction to ROS 2
+description: An overview of ROS 2 concepts and architecture.
+sidebar_position: 1
+---
+```
+
+*   `title`: The title of the page, displayed in the browser tab and sidebar.
+*   `description`: A brief summary of the page content, used for SEO and metadata.
+*   `sidebar_position`: (Optional) Controls the order of the page in the sidebar. Lower numbers appear higher. If omitted, Docusaurus uses alphabetical order.
+
+### Headings
+
+Use ATX headings (`#`, `##`, `###`, etc.) to structure your content.
+*   Only one H1 heading (`#`) per page, which should match the `title` in the front matter.
+*   Use H2 (`##`) for major sections, H3 (`###`) for sub-sections, and so on.
+
+### Code Blocks
+
+Use fenced code blocks with language identifiers for syntax highlighting.
+Example:
+
+````markdown
+```python
+def hello_robot():
+    print("Hello, robot!")
+```
+````
+
+For inline code, use backticks (`` ` ``).
+
+### Images and Assets
+
+*   Store images in the `static/assets/` directory or in module-specific `docs/moduleX/assets/` directories.
+*   Reference images using relative paths.
+    Example: `![ROS 2 Architecture Diagram](/static/assets/ros2-architecture.png)`
+*   For diagrams that can be text-based (like flowcharts or sequence diagrams), prefer Mermaid.js syntax embedded directly in MDX.
+
+### Links
+
+*   Use relative links for internal pages within the Docusaurus site.
+    Example: `[Module 1 Introduction](/docs/module1-ros2/chapter1-introduction-to-ros2)`
+*   For links to other documents in the same sidebar: `[Next Chapter](chapter2-ros2-communication-patterns)`
+
+## 2. Project-Specific Style Guide
+
+### Tone and Voice
+
+*   **Educational and Formal**: Maintain a clear, concise, and professional tone suitable for an educational textbook.
+*   **Encouraging and Accessible**: While formal, the language should be inviting and easy for learners to understand, avoiding overly academic jargon where simpler terms suffice.
+*   **Consistent Terminology**: Use consistent terminology throughout the book. Refer to the glossary if available.
+
+### Technical Accuracy
+
+*   All technical explanations, code examples, and simulation instructions must be thoroughly tested and verified for accuracy and reproducibility.
+*   Clearly distinguish between theoretical concepts and practical implementation details.
+
+### Code Examples
+
+*   **Readability**: Python code examples should be well-commented, follow PEP 8 guidelines, and be easy to read.
+*   **Completeness**: Code examples should be self-contained and runnable where feasible, demonstrating the concept being taught.
+*   **Consistency**: Adhere to a consistent coding style across all examples.
+
+### Diagrams and Visuals
+
+*   **Clarity**: Diagrams should convey information clearly and effectively.
+*   **Relevance**: Every visual element should serve a specific educational purpose.
+*   **Accessibility**: Ensure diagrams are labeled clearly and provide alternative text for accessibility.
+
+### Hands-on Exercises and Simulations
+
+*   Each chapter should include at least one hands-on exercise or simulation task.
+*   Instructions for exercises should be precise, step-by-step, and yield reproducible results.
+
+## 3. Review Process
+
+All content will undergo a two-stage review process:
+1.  **Technical Review**: Focuses on the accuracy of robotics, AI, and simulation concepts.
+2.  **Editorial Review**: Focuses on clarity, consistency, grammar, spelling, and adherence to this style guide.
+
+---
+
+By following this guide, we ensure that the "Physical AI & Humanoid Robotics Course" is a high-quality, effective, and enjoyable learning resource.
