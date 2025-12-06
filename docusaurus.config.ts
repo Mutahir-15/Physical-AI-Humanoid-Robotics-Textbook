@@ -8,14 +8,14 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-github-username.github.io', // TODO: Update with your actual GitHub username
+  url: 'https://Mutahir-15.github.io', // TODO: Update with your actual GitHub username
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/spec-driven-online-hackathon-1/', // TODO: Adjust if deploying to a subpath
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'your-github-username', // TODO: Update with your GitHub org/user name
+  organizationName: 'Mutahir-15', // TODO: Update with your GitHub org/user name
   projectName: 'spec-driven-online-hackathon-1', // TODO: Update with your GitHub repo name
 
   onBrokenLinks: 'throw',
@@ -39,7 +39,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/your-github-username/spec-driven-online-hackathon-1/tree/main/', // TODO: Update with your repo path
+            'https://github.com/Mutahir-15/spec-driven-online-hackathon-1/tree/main/', // TODO: Update with your repo path
         },
         blog: {
           showReadingTime: true,
