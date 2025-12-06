@@ -1,0 +1,41 @@
+#usda 1.0
+(
+    doc = "Conceptual USD scene for motion planning and control in Isaac Sim. To be replaced with an actual scene definition."
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "World"
+{
+    def Scope "Looks"
+    {
+    }
+
+    def Xform "Ground"
+    {
+        # Placeholder for ground plane
+    }
+
+    def Xform "Robot"
+    {
+        # Reference to a robot model, e.g., the humanoid arm
+        # def Xform "HumanoidArm" (
+        #     references = @./humanoid_arm.usd@
+        # )
+        # {
+        #     float3 xformOp:translate = (0, 0, 0.1)
+        #     uniform token[] xformOp:order = ["xformOp:translate"]
+        # }
+    }
+
+    def Xform "Obstacles"
+    {
+        # Placeholder for obstacles in the planning scene
+        def Cube "ObstacleCube"
+        {
+            float3 xformOp:translate = (0.5, 0, 0.2)
+            uniform token[] xformOp:order = ["xformOp:translate"]
+            double size = 0.1
+        }
+    }
+}

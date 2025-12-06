@@ -28,7 +28,7 @@ function HomepageFeatures() {
   const features = [
     {
       title: 'Module 1: The Robotic Nervous System (ROS 2)',
-      imageUrl: '/img/ros2-logo.png', // Placeholder
+      imageUrl: '/img/ros2-logo.jpg', // Placeholder
       description: (
         <>
           Dive into the fundamentals of ROS 2, learning how to build and orchestrate robot software.

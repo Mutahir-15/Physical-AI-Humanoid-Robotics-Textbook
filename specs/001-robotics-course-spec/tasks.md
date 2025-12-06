@@ -75,7 +75,7 @@ Objective: Learners create and interact with digital twins in simulation environ
 
 Objective: Learners integrate advanced AI capabilities into their simulated humanoid using NVIDIA Isaac SDK.
 
--   [ ] T031 [US3] Outline Module 3 learning objectives in `docs/module3-ai-brain/_category_.json`.
+- [x] T031 [US3] Outline Module 3 learning objectives in `docs/module3-ai-brain/_category_.json`.
 -   [ ] T032 [US3] Draft `docs/module3-ai-brain/chapter1-isaac-sim-introduction.mdx` introducing NVIDIA Isaac Sim, its USD framework, and Python API.
 -   [ ] T033 [US3] Draft `docs/module3-ai-brain/chapter2-isaac-perception-tasks.mdx` covering advanced perception tasks (object detection, pose estimation, semantic segmentation) using Isaac.
 -   [ ] T034 [US3] Draft `docs/module3-ai-brain/chapter3-motion-planning-control.mdx` covering motion planning and control algorithms for humanoid robots within Isaac Sim.

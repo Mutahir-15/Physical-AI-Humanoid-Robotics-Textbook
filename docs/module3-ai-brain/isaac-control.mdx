@@ -1,0 +1,132 @@
+---
+title: Motion Planning and Control with Isaac Sim
+description: Covering motion planning and control algorithms for humanoid robots within Isaac Sim.
+sidebar_position: 7
+---
+
+# Motion Planning and Control with Isaac Sim
+
+Precise and intelligent control is paramount for humanoid robots. NVIDIA Isaac Sim, integrated with its robust physics engine and Python API, provides an excellent platform for developing, testing, and refining motion planning and control algorithms. This chapter delves into how to achieve sophisticated robot movements and interactions within Isaac Sim.
+
+<h2>1. Understanding Robot Control Challenges</h2>
+
+Humanoid robots present unique control challenges due to their high degrees of freedom, complex kinematics, and the need for dynamic balance. Key aspects include:
+
+*   **Kinematics**: Mapping joint angles to end-effector positions (forward kinematics) and vice-versa (inverse kinematics).
+*   **Dynamics**: Dealing with forces, torques, mass, and inertia to achieve desired motions.
+*   **Motion Planning**: Generating collision-free trajectories for the robot from a start to a goal configuration.
+*   **Control**: Executing planned trajectories by applying appropriate commands (e.g., joint positions, velocities, torques) to the robot's actuators.
+
+Isaac Sim provides tools that simplify these complex tasks.
+
+<h2>2. Isaac Sim and USD for Robot Control</h2>
+
+Isaac Sim leverages Universal Scene Description (USD) as its core scene representation, which is ideal for robotics. USD allows for hierarchical composition, layering, and attribute inheritance, making it easy to define and manipulate complex robot models.
+
+<h3>Python API for Direct Control</h3>
+
+The core of interacting with and controlling robots in Isaac Sim is through its extensive Python API. This API allows direct access to:
+
+*   **Articulation APIs**: Control joints (positions, velocities, efforts), read joint states.
+*   **Physics Scene APIs**: Apply forces, set velocities, and query physics properties.
+*   **Simulation Management**: Play, pause, step through simulations.
+
+<h3>Example: Basic Joint Position Control (Conceptual Python)</h3>
+
+```python
+import carb
+from omni.isaac.core.articulations import Articulation
+from omni.isaac.core.utils.nucleus import get_assets_root_path
+from omni.isaac.core.utils.stage import add_reference_to_stage
+from omni.isaac.kit import SimulationApp
+
+# This is a conceptual example. Actual setup involves more steps.
+# e.g., setting up a physics scene, adding a ground plane etc.
+
+simulation_app = SimulationApp({"headless": False})
+
+from omni.isaac.core import World
+
+class SimpleJointControl:
+    def __init__(self):
+        self._world = World(stage_units_in_meters=1.0)
+        self._world.scene.add_default_ground_plane()
+
+        # Load your robot from Nucleus or local USD file
+        assets_root_path = get_assets_root_path()
+        if assets_root_path is None:
+            carb.log_error("Could not find assets root path on Nucleus")
+            simulation_app.close()
+            exit()
+        
+        # Conceptual path to a humanoid arm USD model
+        robot_asset_path = assets_root_path + "/Isaac/Robots/Franka/franka_alt_fingers.usd" # Example Franka
+        # In a real scenario, you'd load your humanoid_arm.usd here
+
+        add_reference_to_stage(usd_path=robot_asset_path, prim_path="/World/MyHumanoidArm")
+        self.robot = Articulation(prim_path="/World/MyHumanoidArm", name="my_robot_arm")
+        self._world.scene.add(self.robot)
+
+        self._world.reset()
+        self.robot_prim = self._world.scene.get_object("my_robot_arm")
+        self.joint_names = self.robot_prim.dof_names
+        self.get_logger().info(f"Robot joints: {self.joint_names}")
+
+    async def run_simulation(self):
+        await self._world.play_async()
+        
+        # Example: Set a specific joint to a target position
+        if "panda_joint5" in self.joint_names: # Replace with actual joint name
+            joint_index = self.joint_names.index("panda_joint5")
+            self.robot_prim.set_joint_positions(positions=[1.0], joint_indices=[joint_index])
+            self.get_logger().info(f"Setting joint {self.joint_names[joint_index]} to 1.0 rad")
+        
+        await self._world.stop_async()
+
+if __name__ == '__main__':
+    controller = SimpleJointControl()
+    simulation_app.update() # Required for the UI to show
+    import asyncio
+    asyncio.run(controller.run_simulation())
+    simulation_app.close()
+```
+
+*(Note: The above is highly conceptual and simplified. Actual Isaac Sim Python API usage involves more context, specific robot models, and asynchronous operations.)*
+
+<h2>3. Motion Planning Algorithms in Isaac Sim</h2>
+
+Motion planning involves finding a path or trajectory for the robot from a start configuration to a goal configuration while avoiding obstacles and respecting robot constraints.
+
+<h3>Key Isaac Sim Features</h3>
+
+*   **OMPL Integration**: Isaac Sim integrates with OMPL (Open Motion Planning Library), providing access to a wide range of sampling-based motion planners (e.g., RRT, PRM).
+*   **Collision Detection**: The physics engine performs collision detection, which is crucial for collision-free path planning.
+*   **Path Visualization**: Planned paths can be visualized directly in the Isaac Sim environment.
+
+<h3>Conceptual Workflow: Motion Planning</h3>
+
+```mermaid
+graph TD
+    A[Start Configuration] --> B{Goal Configuration};
+    B --> C{Obstacle Map / Robot Model (USD)};
+    C --> D{Motion Planner (e.g., OMPL)};
+    D -- Collision-free Path --> E[Robot Controller (Isaac Sim)];
+    style A fill:#f9f,stroke:#333,stroke-width:2px;
+    style B fill:#f9f,stroke:#333,stroke-width:2px;
+    style C fill:#bbf,stroke:#333,stroke-width:2px;
+    style D fill:#ccf,stroke:#333,stroke-width:2px;
+    style E fill:#f9f,stroke:#333,stroke-width:2px;
+```
+
+<h2>4. Advanced Control Concepts</h2>
+
+Beyond simple joint position control, Isaac Sim supports more advanced control paradigms:
+
+*   **Inverse Kinematics (IK)**: Control the robot's end-effector by specifying its desired pose, and Isaac Sim can compute the necessary joint angles.
+*   **Force Control**: Apply forces and torques directly for compliant manipulation or interaction with the environment.
+*   **Trajectory Generation**: Generate smooth and time-optimal trajectories for complex movements.
+*   **Reinforcement Learning (Isaac Gym)**: For highly dynamic and complex tasks, training policies through reinforcement learning in Isaac Gym allows the robot to learn optimal control strategies.
+
+<h2>Conclusion</h2>
+
+Isaac Sim provides a rich, physically accurate, and highly customizable environment for developing sophisticated motion planning and control algorithms for humanoid robots. Its Python API, USD integration, and support for advanced planning libraries make it an invaluable tool for bringing intelligent robotic behaviors to life in simulation.
