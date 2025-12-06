@@ -39,15 +39,15 @@ export default [
   },
   {
     path: '/docs',
-    component: ComponentCreator('/docs', '4ce'),
+    component: ComponentCreator('/docs', 'fdc'),
     routes: [
       {
         path: '/docs',
-        component: ComponentCreator('/docs', 'a7e'),
+        component: ComponentCreator('/docs', '4f0'),
         routes: [
           {
             path: '/docs',
-            component: ComponentCreator('/docs', '19d'),
+            component: ComponentCreator('/docs', '184'),
             routes: [
               {
                 path: '/docs/capstone',
@@ -106,6 +106,12 @@ export default [
               {
                 path: '/docs/contributing/style-guide',
                 component: ComponentCreator('/docs/contributing/style-guide', 'de1'),
+                exact: true,
+                sidebar: "courseSidebar"
+              },
+              {
+                path: '/docs/deployment/guide',
+                component: ComponentCreator('/docs/deployment/guide', 'fe7'),
                 exact: true,
                 sidebar: "courseSidebar"
               },

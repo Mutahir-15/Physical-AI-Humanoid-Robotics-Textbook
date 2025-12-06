@@ -8,7 +8,7 @@ import styles from './index.module.css';
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <header className={styles.heroBanner}>
+    <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
@@ -16,7 +16,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/intro">
-            Start Exploring the Course - 5min ⏱️
+            Start Exploring the Course <span role="img" aria-label="rocket">🚀</span>
           </Link>
         </div>
       </div>
@@ -31,7 +31,7 @@ function HomepageFeatures() {
       imageUrl: '/img/ros2-logo.jpg', // Placeholder
       description: (
         <>
-          Dive into the fundamentals of ROS 2, learning how to build and orchestrate robot software.
+          Dive into the fundamentals of ROS 2, learning to build and orchestrate robot software.
         </>
       ),
       link: '/docs/module1-ros2',
@@ -51,7 +51,7 @@ function HomepageFeatures() {
       imageUrl: '/img/isaac-sim-logo.png', // Placeholder
       description: (
         <>
-          Integrate cutting-edge AI capabilities into your simulated humanoids using NVIDIA Isaac SDK.
+          Integrate cutting-edge AI capabilities into simulated humanoids using NVIDIA Isaac SDK.
         </>
       ),
       link: '/docs/module3-ai-brain', // Placeholder link
@@ -61,7 +61,7 @@ function HomepageFeatures() {
       imageUrl: '/img/vla-robotics-logo.png', // Placeholder
       description: (
         <>
-          Connect vision, language, and action to enable intelligent, voice-commanded robot behaviors.
+          Connect vision, language, and action for intelligent, voice-commanded robot behaviors.
         </>
       ),
       link: '/docs/module4-vla', // Placeholder link
@@ -71,6 +71,7 @@ function HomepageFeatures() {
   return (
     <section className={styles.features}>
       <div className="container">
+        <h2 className="text--center margin-bottom--lg">Course Modules</h2>
         <div className="row">
           {features.map((props, idx) => (
             <Feature key={idx} {...props} />
@@ -84,7 +85,7 @@ function HomepageFeatures() {
 function Feature({imageUrl, title, description, link}) {
   const imgUrl = imageUrl;
   return (
-    <div className={clsx('col col--3', styles.feature)}>
+    <div className={clsx('col col--3 margin-bottom--lg', styles.feature)}>
       {imgUrl && (
         <div className="text--center">
           <img className={styles.featureImage} src={imgUrl} alt={title} />
@@ -103,23 +104,10 @@ export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={siteConfig.title}
+      description={siteConfig.tagline}>
       <HomepageHeader />
       <main>
-        <div className="container text--center margin-bottom--xl">
-          <h2>Welcome to the Physical AI & Humanoid Robotics Course!</h2>
-          <p>
-            This course is designed to take you on a journey through the exciting world of
-            physical AI and humanoid robotics. From foundational concepts in ROS 2 to
-            advanced simulations in Gazebo and Unity, and integrating cutting-edge
-            AI with NVIDIA Isaac, you will gain the skills to build and control
-            intelligent robotic systems.
-          </p>
-          <p>
-            Start by exploring our modules below to begin your learning adventure.
-          </p>
-        </div>
         <HomepageFeatures />
       </main>
     </Layout>

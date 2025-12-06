@@ -77,17 +77,17 @@
     "sidebar": "814f3328",
     "content": "a951fea5"
   },
-  "/docs-4ce": {
+  "/docs-fdc": {
     "__comp": "5e95c892",
     "__context": {
       "plugin": "aba21aa0"
     }
   },
-  "/docs-a7e": {
+  "/docs-4f0": {
     "__comp": "a7bd4aaa",
     "__props": "0058b4c6"
   },
-  "/docs-19d": {
+  "/docs-184": {
     "__comp": "a94703ab"
   },
   "/docs/capstone-983": {
@@ -129,6 +129,10 @@
   "/docs/contributing/style-guide-de1": {
     "__comp": "17896441",
     "content": "0c21af39"
+  },
+  "/docs/deployment/guide-fe7": {
+    "__comp": "17896441",
+    "content": "e9f6e77d"
   },
   "/docs/intro-f7a": {
     "__comp": "17896441",

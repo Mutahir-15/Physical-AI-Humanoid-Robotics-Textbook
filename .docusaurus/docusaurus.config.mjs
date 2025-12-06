@@ -7,10 +7,10 @@ export default {
   "title": "Physical AI & Humanoid Robotics Course",
   "tagline": "Learn to build intelligent robots",
   "favicon": "img/favicon.ico",
-  "url": "https://your-docusaurus-site.example.com",
+  "url": "https://Mutahir-15.github.io",
   "baseUrl": "/",
-  "organizationName": "your-organization",
-  "projectName": "robotics-course-book",
+  "organizationName": "Mutahir-15",
+  "projectName": "spec-driven-online-hackathon-1",
   "onBrokenLinks": "throw",
   "i18n": {
     "defaultLocale": "en",
@@ -26,7 +26,7 @@ export default {
       {
         "docs": {
           "sidebarPath": "./sidebars.ts",
-          "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/"
+          "editUrl": "https://github.com/Physical-AI-Humanoid-Robotics-Textbook/tree/main/"
         },
         "blog": {
           "showReadingTime": true,

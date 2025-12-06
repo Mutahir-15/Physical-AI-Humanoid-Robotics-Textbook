@@ -26,6 +26,11 @@
               "sidebar": "courseSidebar"
             },
             {
+              "id": "deployment/guide",
+              "path": "/docs/deployment/guide",
+              "sidebar": "courseSidebar"
+            },
+            {
               "id": "intro",
               "path": "/docs/intro",
               "sidebar": "courseSidebar"
