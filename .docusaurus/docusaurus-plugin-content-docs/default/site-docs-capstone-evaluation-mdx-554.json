@@ -1,0 +1,27 @@
+{
+  "id": "capstone/evaluation",
+  "title": "Capstone Project Evaluation Criteria",
+  "description": "The Capstone Project serves as the ultimate demonstration of a learner's mastery of the concepts and skills acquired throughout the \"Physical AI & Humanoid Robotics Course.\" This document outlines the clear evaluation criteria used to assess the project's success, focusing on functionality, robustness, adherence to requirements, and the quality of technical documentation.",
+  "source": "@site/docs/capstone/evaluation.mdx",
+  "sourceDirName": "capstone",
+  "slug": "/capstone/evaluation",
+  "permalink": "/docs/capstone/evaluation",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/capstone/evaluation.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "sidebar_position": 4
+  },
+  "sidebar": "courseSidebar",
+  "previous": {
+    "title": "Capstone Project Overview",
+    "permalink": "/docs/capstone/overview"
+  },
+  "next": {
+    "title": "Content Style Guide",
+    "permalink": "/docs/contributing/style-guide"
+  }
+}

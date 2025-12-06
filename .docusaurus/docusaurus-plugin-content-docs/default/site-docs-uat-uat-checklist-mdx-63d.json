@@ -1,0 +1,27 @@
+{
+  "id": "uat/uat-checklist",
+  "title": "User Acceptance Testing (UAT) Checklist: Physical AI & Humanoid Robotics Course",
+  "description": "This checklist outlines the criteria for User Acceptance Testing (UAT) for the \"Physical AI & Humanoid Robotics Course\" book. The goal of this UAT is to ensure that the book meets the learning objectives, is user-friendly, technically accurate, and provides a high-quality educational experience for target learners.",
+  "source": "@site/docs/uat/uat-checklist.mdx",
+  "sourceDirName": "uat",
+  "slug": "/uat/uat-checklist",
+  "permalink": "/docs/uat/uat-checklist",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/uat/uat-checklist.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "courseSidebar",
+  "previous": {
+    "title": "Content Style Guide",
+    "permalink": "/docs/contributing/style-guide"
+  },
+  "next": {
+    "title": "Module 1: The Robotic Nervous System (ROS 2)",
+    "permalink": "/docs/module1-ros2"
+  }
+}

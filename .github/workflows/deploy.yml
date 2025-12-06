@@ -1,0 +1,40 @@
+name: Deploy Docusaurus to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Or your default branch
+
+jobs:
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          # Fetch all history for @docusaurus/plugin-content-docs to be able to create last updated
+          # By default, actions/checkout@v3 fetches no history
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18 # Or your preferred Node.js version
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Docusaurus website
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Set `publish_dir` to your Docusaurus build output directory, usually 'build'
+          publish_dir: ./build
+          # By default, the action deploys to `gh-pages` branch.
+          # If your GitHub Pages is configured to deploy from `main` branch directly, change `publish_branch`.
+          # publish_branch: gh-pages # Default is gh-pages
+          # For project pages (https://<username>.github.io/<repo-name>), ensure 'CNAME' is not used.
+          # If you're deploying a user/organization page (https://<username>.github.io), you can use CNAME.
+          # cname: example.com # Uncomment and set your custom domain if needed

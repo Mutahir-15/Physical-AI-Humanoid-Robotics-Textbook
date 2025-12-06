@@ -1,0 +1,27 @@
+{
+  "id": "module3-ai-brain/chapter3-motion-planning-control",
+  "title": "Chapter 3: Motion Planning and Control in Isaac Sim",
+  "description": "Motion planning and control are core challenges in robotics, enabling robots to navigate their environment and interact with objects. For complex systems like humanoid robots, these tasks become significantly more intricate. NVIDIA Isaac Sim provides powerful tools and integrations to develop, test, and refine motion planning and control algorithms in a realistic and simulated environment.",
+  "source": "@site/docs/module3-ai-brain/chapter3-motion-planning-control.mdx",
+  "sourceDirName": "module3-ai-brain",
+  "slug": "/module3-ai-brain/chapter3-motion-planning-control",
+  "permalink": "/docs/module3-ai-brain/chapter3-motion-planning-control",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/module3-ai-brain/chapter3-motion-planning-control.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "courseSidebar",
+  "previous": {
+    "title": "Chapter 2: Isaac Sim for Advanced Perception Tasks",
+    "permalink": "/docs/module3-ai-brain/chapter2-isaac-perception-tasks"
+  },
+  "next": {
+    "title": "Chapter 4: ROS 2 Integration with Isaac Sim",
+    "permalink": "/docs/module3-ai-brain/chapter4-ros2-isaac-integration"
+  }
+}

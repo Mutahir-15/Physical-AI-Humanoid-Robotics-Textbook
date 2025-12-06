@@ -1,0 +1,105 @@
+---
+sidebar_position: 1
+---
+
+# Deployment and Maintenance Guide
+
+This guide provides instructions for building, deploying, and maintaining the "Physical AI & Humanoid Robotics Course" book, which is built using Docusaurus and hosted on GitHub Pages.
+
+## 1. Building the Project
+
+To build the static website files for the Docusaurus project:
+
+1.  **Ensure Node.js and npm are installed**:
+    If not already installed, follow the instructions on [Node.js official website](https://nodejs.org/).
+
+2.  **Install Project Dependencies**:
+    Navigate to the root directory of the project in your terminal and run:
+    ```bash
+    npm install
+    ```
+
+3.  **Build the Website**:
+    This command compiles the Docusaurus project and generates all static assets into a `build/` directory.
+    ```bash
+    npm run build
+    ```
+    Upon successful completion, you will find the static website files in the `build/` directory at the project root.
+
+## 2. Deploying to GitHub Pages
+
+The project is configured for automated deployment to GitHub Pages using GitHub Actions.
+
+### 2.1. Configuration in `docusaurus.config.ts`
+
+Ensure the following fields in your `docusaurus.config.ts` are correctly configured for your GitHub repository:
+
+*   `url`: `https://your-github-username.github.io` (replace `your-github-username` with your actual GitHub username/organization)
+*   `baseUrl`: `/spec-driven-online-hackathon-1/` (replace `spec-driven-online-hackathon-1` with your repository name if it's different, or `/` for user/organization pages)
+*   `organizationName`: `your-github-username` (your GitHub username/organization)
+*   `projectName`: `spec-driven-online-hackathon-1` (your GitHub repository name)
+*   `editUrl`: `https://github.com/your-github-username/spec-driven-online-hackathon-1/tree/main/` (update with your actual repo path)
+
+### 2.2. GitHub Actions Workflow (`.github/workflows/deploy.yml`)
+
+The deployment is handled by a GitHub Actions workflow:
+
+*   **Trigger**: The workflow is configured to run automatically on `push` events to the `main` branch.
+*   **Steps**:
+    *   `actions/checkout@v3`: Checks out your repository.
+    *   `actions/setup-node@v3`: Sets up the Node.js environment.
+    *   `npm install`: Installs project dependencies.
+    *   `npm run build`: Builds the Docusaurus website.
+    *   `peaceiris/actions-gh-pages@v3`: Deploys the `build/` directory content to the `gh-pages` branch of your repository.
+
+**To trigger a deployment**:
+Simply push changes to your `main` branch. GitHub Actions will pick up the changes, build the site, and deploy it to GitHub Pages.
+
+### 2.3. GitHub Pages Settings
+
+After your first successful deployment, ensure your GitHub repository's Pages settings are configured to serve from the `gh-pages` branch.
+1.  Go to your repository on GitHub.
+2.  Navigate to **Settings** > **Pages**.
+3.  Under "Source", select "Deploy from a branch".
+4.  For "GitHub Pages branch", choose `gh-pages` and `/ (root)`.
+5.  Click "Save".
+
+Your site should then be accessible at the URL configured in `docusaurus.config.ts`.
+
+## 3. Maintenance and Updates
+
+### 3.1. Content Updates
+
+*   **Editing Content**: Modify `.mdx` files in the `docs/` and `blog/` directories.
+*   **Adding New Content**: Create new `.mdx` files and update `_category_.json` files or `sidebars.ts` as needed for navigation.
+*   **Assets**: Place new images, diagrams, or other static assets in `static/assets/` or module-specific `assets/` folders.
+
+### 3.2. Dependency Updates
+
+Regularly update Node.js dependencies to benefit from new features, bug fixes, and security patches.
+```bash
+npm update
+```
+After updating, always run `npm run build` locally to ensure the site still builds correctly before pushing changes.
+
+### 3.3. Docusaurus Version Updates
+
+Keep Docusaurus updated to the latest stable version. Refer to the [Docusaurus Upgrade Guide](https://docusaurus.io/docs/next/migration) for instructions on migrating between major versions.
+
+## 4. Troubleshooting
+
+*   **Build Failures**:
+    *   Check the GitHub Actions workflow logs for specific error messages.
+    *   Run `npm run build` locally to reproduce the error and get more detailed diagnostics.
+    *   Common issues: broken links, MDX syntax errors, missing dependencies.
+*   **Deployment Issues**:
+    *   Verify your GitHub Pages settings (branch, source) are correct.
+    *   Check the GitHub Actions deployment log for errors.
+    *   Ensure the `baseUrl` in `docusaurus.config.ts` matches your GitHub Pages subpath configuration.
+*   **Broken Links on Live Site**:
+    *   Run `npm run build` locally; `onBrokenLinks` and `onBrokenMarkdownLinks` will help identify issues.
+    *   Use Docusaurus's built-in link checker (often part of `npm run build`).
+*   **Content Not Appearing/Incorrect Order**:
+    *   Verify `sidebar_position` in frontmatter.
+    *   Check `_category_.json` and `sidebars.ts` for correct `label` and `dirName`.
+    *   Ensure file names and directory names are `kebab-case`.

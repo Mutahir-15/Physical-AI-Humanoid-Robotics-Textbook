@@ -1,0 +1,79 @@
+---
+title: Capstone Project Overview
+description: Design the full Capstone Project narrative and requirements.
+sidebar_position: 1
+---
+
+# Capstone Project: Autonomous Humanoid for Voice-Commanded Tasks
+
+Welcome to the Capstone Project! This is the culmination of your journey through the Physical AI & Humanoid Robotics Course. In this phase, you will apply all the knowledge and skills gained from Modules 1, 2, 3, and 4 to build a fully autonomous humanoid robot capable of understanding voice commands and executing complex tasks in a simulated environment.
+
+<h2>1. Project Goal</h2>
+
+The primary goal of the Capstone Project is to design, implement, and demonstrate an autonomous humanoid robot that can:
+
+1.  Receive high-level voice commands from a human operator.
+2.  Interpret these commands using natural language understanding.
+3.  Plan and navigate through a simulated environment.
+4.  Identify and locate specific objects.
+5.  Perform manipulation tasks (e.g., picking and placing objects).
+
+The project narrative is: **"Autonomous Humanoid receiving voice → planning → navigation → object identification → manipulation"**
+
+<h2>2. Core Pipelines (Integration of Modules)</h2>
+
+The Capstone Project requires the seamless integration of several key pipelines, each building upon the concepts learned in previous modules:
+
+<h3>a) Voice Input Pipeline (Whisper -> LLM -> ROS 2 Actions)</h3>
+
+This pipeline handles the human-robot interface, converting spoken commands into structured robotic instructions.
+
+*   **Voice-to-Text**: Utilize a Speech-to-Text (STT) system (e.g., OpenAI Whisper, as explored in Module 4) to transcribe spoken language into text.
+*   **Language Understanding**: Employ a Large Language Model (LLM, as explored in Module 4) to interpret the text, extract intent, and identify relevant entities (objects, locations).
+*   **ROS 2 Action Generation**: Translate the LLM's output into a sequence of discrete ROS 2 actions or service calls that the robot can execute.
+
+<h3>b) Cognitive Planning Pipeline</h3>
+
+This pipeline is responsible for breaking down high-level commands into a series of actionable sub-tasks and ensuring their logical execution.
+
+*   **Task Decomposition**: Transform an abstract command (e.g., "get me the cup") into a sequence of more specific actions (e.g., "navigate to table," "find cup," "grasp cup," "return cup").
+*   **State Management**: Keep track of the robot's current state, the environment's state, and the progress of the overall task.
+*   **Decision Making**: Make decisions at various points in the plan, such as re-planning if an obstacle is encountered or if an object is not found.
+
+<h3>c) Navigation Pipeline (Isaac Sim + Nav2)</h3>
+
+This pipeline enables the humanoid to move autonomously and safely within the simulated environment.
+
+*   **Localization & Mapping**: Use techniques like Visual SLAM (Simultaneous Localization and Mapping), potentially from Isaac Sim's capabilities or external ROS 2 packages, to build a map of the environment and determine the robot's position within it.
+*   **Path Planning**: Generate global and local paths to reach target locations while avoiding obstacles. ROS 2 Nav2 stack is a prime candidate for this.
+*   **Motion Control**: Execute the planned paths by generating appropriate velocity commands for the robot's base.
+*   **Simulation Environment**: All navigation will occur within Isaac Sim, leveraging its physics and rendering capabilities.
+
+<h3>d) Object Identification and Manipulation Pipeline (URDF -> Controllers)</h3>
+
+This pipeline focuses on the robot's ability to interact with objects in its environment.
+
+*   **Object Perception**: Utilize vision systems (e.g., from Isaac ROS or other sources, as explored in Module 3 and 4) to detect, identify, and estimate the 3D pose of target objects.
+*   **Reachability Analysis**: Determine if the robot's arm can reach the target object from its current position.
+*   **Grasping Strategy**: Plan a stable grasp for the object, considering its geometry and the robot's gripper capabilities.
+*   **Manipulation Execution**: Use the robot's URDF model and joint controllers to execute the planned reach and grasp actions.
+
+<h2>3. Capstone Project Requirements</h2>
+
+*   The robot MUST respond to at least three distinct high-level voice commands (e.g., "Pick and Place", "Explore Room", "Follow Me").
+*   The robot MUST be able to navigate a predefined simulated environment in Isaac Sim to reach target locations.
+*   The robot MUST accurately identify and localize at least two distinct objects.
+*   The robot MUST successfully perform pick-and-place manipulation for at least one object.
+*   All components MUST be integrated using ROS 2 communication mechanisms.
+*   The entire system MUST run robustly in Isaac Sim.
+
+<h2>4. Deliverables</h2>
+
+*   A fully integrated ROS 2 system running in Isaac Sim.
+*   Demonstration of the humanoid executing voice-commanded tasks.
+*   Codebase for all pipelines.
+*   Detailed `docs/capstone/overview.mdx` and `docs/capstone/evaluation.mdx`.
+
+<h2>Conclusion</h2>
+
+The Capstone Project brings together all the complex facets of Physical AI and Humanoid Robotics. Successfully completing this project will demonstrate a comprehensive understanding of ROS 2, advanced simulation, AI perception, natural language processing, and robot control. Good luck!

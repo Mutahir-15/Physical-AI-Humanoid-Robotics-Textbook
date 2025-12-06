@@ -1,0 +1,29 @@
+{
+  "id": "module4-vla/chapter1-voice-llm-integration",
+  "title": "Voice and LLM Integration",
+  "description": "Covering integration of voice-to-text (Whisper) and LLMs for high-level command interpretation.",
+  "source": "@site/docs/module4-vla/chapter1-voice-llm-integration.mdx",
+  "sourceDirName": "module4-vla",
+  "slug": "/module4-vla/chapter1-voice-llm-integration",
+  "permalink": "/docs/module4-vla/chapter1-voice-llm-integration",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/module4-vla/chapter1-voice-llm-integration.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "title": "Voice and LLM Integration",
+    "description": "Covering integration of voice-to-text (Whisper) and LLMs for high-level command interpretation.",
+    "sidebar_position": 1
+  },
+  "sidebar": "courseSidebar",
+  "previous": {
+    "title": "Module 4: Vision-Language-Action (VLA Robotics)",
+    "permalink": "/docs/category/module-4-vision-language-action-vla-robotics"
+  },
+  "next": {
+    "title": "Natural Language to Robot Actions",
+    "permalink": "/docs/module4-vla/chapter2-natural-language-to-robot-actions"
+  }
+}

@@ -1,0 +1,58 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "World"
+{
+    def Xform "Environments"
+    {
+        def Capsule "Table"
+        {
+            float height = 0.5
+            float radius = 0.6
+            float3 xformOp:translate = (0, 0, 0.25)
+            uniform token[] xformOp:order = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "Looks"
+    {
+    }
+
+    def Xform "Robots"
+    {
+        # Reference to a conceptual humanoid robot model
+        # In a real scenario, this would be a detailed USD path to a humanoid robot
+        def UsdGeomXform "CapstoneHumanoid"
+        {
+            float3 xformOp:translate = (0, 0, 0.9)
+            float3 xformOp:scale = (1, 1, 1)
+            uniform token[] xformOp:order = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            # asset path = <ROBOT_USD_PATH>
+        }
+    }
+
+    def Xform "Props"
+    {
+        # Example objects for manipulation and perception tasks
+        def Cube "RedBlock"
+        {
+            float3 xformOp:scale = (0.1, 0.1, 0.1)
+            float3 xformOp:translate = (0.4, 0.3, 0.55)
+            color3f[] primvars:displayColor = [(1, 0, 0)]
+            uniform token[] xformOp:order = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cylinder "BlueCup"
+        {
+            float radius = 0.05
+            float height = 0.1
+            float3 xformOp:translate = (-0.3, 0.5, 0.55)
+            color3f[] primvars:displayColor = [(0, 0, 1)]
+            uniform token[] xformOp:order = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+}

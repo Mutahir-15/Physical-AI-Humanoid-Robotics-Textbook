@@ -1,0 +1,213 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/docs",
+          "mainDocId": "intro",
+          "docs": [
+            {
+              "id": "capstone/evaluation",
+              "path": "/docs/capstone/evaluation",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "capstone/overview",
+              "path": "/docs/capstone/overview",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "contributing/style-guide",
+              "path": "/docs/contributing/style-guide",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "intro",
+              "path": "/docs/intro",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "module1-ros2/chapter1-introduction-to-ros2",
+              "path": "/docs/module1-ros2/chapter1-introduction-to-ros2",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "module1-ros2/chapter2-ros2-communication-patterns",
+              "path": "/docs/module1-ros2/chapter2-ros2-communication-patterns",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "module1-ros2/chapter3-ros2-services-actions",
+              "path": "/docs/module1-ros2/chapter3-ros2-services-actions",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "module1-ros2/chapter4-robot-description-with-urdf",
+              "path": "/docs/module1-ros2/chapter4-robot-description-with-urdf",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "module1-ros2/chapter5-simulation-instructions",
+              "path": "/docs/module1-ros2/chapter5-simulation-instructions",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "module2-digital-twin/chapter1-advanced-urdf-sdf-modeling",
+              "path": "/docs/module2-digital-twin/chapter1-advanced-urdf-sdf-modeling",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "module2-digital-twin/chapter2-gazebo-environment-physics",
+              "path": "/docs/module2-digital-twin/chapter2-gazebo-environment-physics",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "module2-digital-twin/chapter3-ros2-gazebo-integration",
+              "path": "/docs/module2-digital-twin/chapter3-ros2-gazebo-integration",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "module2-digital-twin/chapter4-unity-robot-model-import",
+              "path": "/docs/module2-digital-twin/chapter4-unity-robot-model-import",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "module2-digital-twin/chapter5-unity-physics-sensors",
+              "path": "/docs/module2-digital-twin/chapter5-unity-physics-sensors",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "module3-ai-brain/chapter1-isaac-sim-introduction",
+              "path": "/docs/module3-ai-brain/chapter1-isaac-sim-introduction",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "module3-ai-brain/chapter2-isaac-perception-tasks",
+              "path": "/docs/module3-ai-brain/chapter2-isaac-perception-tasks",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "module3-ai-brain/chapter3-motion-planning-control",
+              "path": "/docs/module3-ai-brain/chapter3-motion-planning-control",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "module3-ai-brain/chapter4-ros2-isaac-integration",
+              "path": "/docs/module3-ai-brain/chapter4-ros2-isaac-integration",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "module3-ai-brain/isaac-sim-architecture-diagram",
+              "path": "/docs/module3-ai-brain/isaac-sim-architecture-diagram",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "module3-ai-brain/motion-planning-workflow-diagram",
+              "path": "/docs/module3-ai-brain/motion-planning-workflow-diagram",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "module3-ai-brain/perception-pipeline-diagram",
+              "path": "/docs/module3-ai-brain/perception-pipeline-diagram",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "module4-vla/chapter1-voice-llm-integration",
+              "path": "/docs/module4-vla/chapter1-voice-llm-integration",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "module4-vla/chapter2-natural-language-to-robot-actions",
+              "path": "/docs/module4-vla/chapter2-natural-language-to-robot-actions",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "module4-vla/chapter3-combining-vision-language",
+              "path": "/docs/module4-vla/chapter3-combining-vision-language",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "module4-vla/chapter4-reactive-control-strategies",
+              "path": "/docs/module4-vla/chapter4-reactive-control-strategies",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "uat/uat-checklist",
+              "path": "/docs/uat/uat-checklist",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "/category/module-1-the-robotic-nervous-system-ros-2",
+              "path": "/docs/category/module-1-the-robotic-nervous-system-ros-2",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "/category/module-2-the-digital-twin-gazebo--unity",
+              "path": "/docs/category/module-2-the-digital-twin-gazebo--unity",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "/category/module-3-the-ai-robot-brain-nvidia-isaac",
+              "path": "/docs/category/module-3-the-ai-robot-brain-nvidia-isaac",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "/category/module-4-vision-language-action-vla-robotics",
+              "path": "/docs/category/module-4-vision-language-action-vla-robotics",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "/category/capstone-project",
+              "path": "/docs/category/capstone-project",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "/module1-ros2",
+              "path": "/docs/module1-ros2",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "/module2-digital-twin",
+              "path": "/docs/module2-digital-twin",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "/module3-ai-brain",
+              "path": "/docs/module3-ai-brain",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "/module4-vla",
+              "path": "/docs/module4-vla",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "/capstone",
+              "path": "/docs/capstone",
+              "sidebar": "courseSidebar"
+            },
+            {
+              "id": "/contributing",
+              "path": "/docs/contributing",
+              "sidebar": "courseSidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "courseSidebar": {
+              "link": {
+                "path": "/docs/intro",
+                "label": "intro"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}

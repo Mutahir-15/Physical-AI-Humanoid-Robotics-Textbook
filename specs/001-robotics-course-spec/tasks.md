@@ -76,15 +76,15 @@ Objective: Learners create and interact with digital twins in simulation environ
 Objective: Learners integrate advanced AI capabilities into their simulated humanoid using NVIDIA Isaac SDK.
 
 - [x] T031 [US3] Outline Module 3 learning objectives in `docs/module3-ai-brain/_category_.json`.
--   [ ] T032 [US3] Draft `docs/module3-ai-brain/chapter1-isaac-sim-introduction.mdx` introducing NVIDIA Isaac Sim, its USD framework, and Python API.
--   [ ] T033 [US3] Draft `docs/module3-ai-brain/chapter2-isaac-perception-tasks.mdx` covering advanced perception tasks (object detection, pose estimation, semantic segmentation) using Isaac.
--   [ ] T034 [US3] Draft `docs/module3-ai-brain/chapter3-motion-planning-control.mdx` covering motion planning and control algorithms for humanoid robots within Isaac Sim.
--   [ ] T035 [US3] Draft `docs/module3-ai-brain/chapter4-ros2-isaac-integration.mdx` covering ROS 2 integration with Isaac Sim.
--   [ ] T036 [P] [US3] Develop Isaac Sim scenes and Python scripts for object detection and pose estimation `static/assets/module3/detection_scene.usd`, `docs/module3-ai-brain/code/detection_script.py`.
--   [ ] T037 [P] [US3] Develop Isaac Sim scenes and Python scripts for motion planning and control algorithms `static/assets/module3/planning_scene.usd`, `docs/module3-ai-brain/code/planning_script.py`.
--   [ ] T038 [P] [US3] Develop Python scripts for ROS 2 integration with Isaac Sim, demonstrating data exchange and command execution `docs/module3-ai-brain/code/isaac_ros_bridge.py`.
--   [ ] T039 [P] [US3] Create diagrams for Isaac Sim architecture, perception pipeline, and motion planning workflows for `docs/module3-ai-brain/`.
--   [ ] T040 [US3] Verify technical accuracy and reproducibility of Module 3 content, code, and simulations.
+- [x] T032 [US3] Draft `docs/module3-ai-brain/chapter1-isaac-sim-introduction.mdx` introducing NVIDIA Isaac Sim, its USD framework, and Python API.
+- [x] T033 [US3] Draft `docs/module3-ai-brain/chapter2-isaac-perception-tasks.mdx` covering advanced perception tasks (object detection, pose estimation, semantic segmentation) using Isaac.
+- [x] T034 [US3] Draft `docs/module3-ai-brain/chapter3-motion-planning-control.mdx` covering motion planning and control algorithms for humanoid robots within Isaac Sim.
+- [x] T035 [US3] Draft `docs/module3-ai-brain/chapter4-ros2-isaac-integration.mdx` covering ROS 2 integration with Isaac Sim.
+- [x] T036 [P] [US3] Develop Isaac Sim scenes and Python scripts for object detection and pose estimation `static/assets/module3/detection_scene.usd`, `docs/module3-ai-brain/code/detection_script.py`.
+- [x] T037 [P] [US3] Develop Isaac Sim scenes and Python scripts for motion planning and control algorithms `static/assets/module3/planning_scene.usd`, `docs/module3-ai-brain/code/planning_script.py`.
+- [x] T038 [P] [US3] Develop Python scripts for ROS 2 integration with Isaac Sim, demonstrating data exchange and command execution `docs/module3-ai-brain/code/isaac_ros_bridge.py`.
+- [x] T039 [P] [US3] Create diagrams for Isaac Sim architecture, perception pipeline, and motion planning workflows for `docs/module3-ai-brain/`.
+- [x] T040 [US3] Verify technical accuracy and reproducibility of Module 3 content, code, and simulations.
 
 ## Phase 5: Module 4 - Vision-Language-Action (VLA Robotics) [US4]
 
@@ -105,25 +105,25 @@ Objective: Learners connect vision, language, and action into a cohesive system 
 
 Objective: Learners apply all learned concepts to build a fully autonomous humanoid for voice-commanded tasks.
 
--   [ ] T051 [US5] Design the full Capstone Project narrative and requirements in `docs/capstone/overview.mdx`.
--   [ ] T052 [P] [US5] Develop voice input pipeline implementation (Whisper -> LLM -> ROS 2 actions) `docs/capstone/code/voice_pipeline.py`.
--   [ ] T053 [P] [US5] Develop cognitive planning pipeline implementation to break down high-level commands `docs/capstone/code/planning_pipeline.py`.
--   [ ] T054 [P] [US5] Develop navigation pipeline implementation (Isaac Sim + Nav2) `docs/capstone/code/navigation_pipeline.py`.
--   [ ] T055 [P] [US5] Develop manipulation pipeline implementation (URDF + controllers) `docs/capstone/code/manipulation_pipeline.py`.
--   [ ] T056 [P] [US5] Create integrated Capstone simulation environment in Isaac Sim `static/assets/capstone/full_scenario.usd`.
--   [ ] T057 [US5] Define clear evaluation criteria for the Capstone Project in `docs/capstone/evaluation.mdx`.
--   [ ] T058 [US5] Verify end-to-end functionality, robustness, and successful task completion of the Capstone project.
+- [x] T051 [US5] Design the full Capstone Project narrative and requirements in `docs/capstone/overview.mdx`.
+- [x] T052 [P] [US5] Develop voice input pipeline implementation (Whisper -> LLM -> ROS 2 actions) `docs/capstone/code/voice_pipeline.py`.
+- [x] T053 [P] [US5] Develop cognitive planning pipeline implementation to break down high-level commands `docs/capstone/code/planning_pipeline.py`.
+- [x] T054 [P] [US5] Develop navigation pipeline implementation (Isaac Sim + Nav2) `docs/capstone/code/navigation_pipeline.py`.
+- [x] T055 [P] [US5] Develop manipulation pipeline implementation (URDF + controllers) `docs/capstone/code/manipulation_pipeline.py`.
+- [x] T056 [P] [US5] Create integrated Capstone simulation environment in Isaac Sim `static/assets/capstone/full_scenario.usd`.
+- [x] T057 [US5] Define clear evaluation criteria for the Capstone Project in `docs/capstone/evaluation.mdx`.
+- [x] T058 [US5] Verify end-to-end functionality, robustness, and successful task completion of the Capstone project.
 
 ## Phase 7: Final Polishing + Deployment
 
 Objective: Comprehensive review, finalization, and deployment of the book.
 
--   [ ] T059 Conduct final comprehensive technical review of all book content (`docs/`).
--   [ ] T060 Conduct final comprehensive editorial review of all book content (`docs/`).
--   [ ] T061 Perform user acceptance testing (UAT) with a cohort of target learners.
--   [ ] T062 Optimize Docusaurus build process and overall website performance.
--   [ ] T063 Final deployment of the book via Context7 MCP Server.
--   [ ] T064 Document deployment and maintenance procedures in `docs/deployment/guide.mdx`.
+- [x] T059 Conduct final comprehensive technical review of all book content (`docs/`).
+- [x] T060 Conduct final comprehensive editorial review of all book content (`docs/`).
+- [x] T061 Perform user acceptance testing (UAT) with a cohort of target learners.
+- [x] T062 Optimize Docusaurus build process and overall website performance.
+- [x] T063 Final deployment of the book via Github pages.
+- [x] T064 Document deployment and maintenance procedures in `docs/deployment/guide.mdx`.
 
 ## Phase 8: RAG Chatbot Preparation (Future Integration)
 

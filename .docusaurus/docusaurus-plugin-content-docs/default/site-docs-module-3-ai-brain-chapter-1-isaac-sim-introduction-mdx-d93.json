@@ -1,0 +1,27 @@
+{
+  "id": "module3-ai-brain/chapter1-isaac-sim-introduction",
+  "title": "Chapter 1: Introduction to NVIDIA Isaac Sim",
+  "description": "NVIDIA Isaac Sim is a powerful, scalable robotics simulation platform built on NVIDIA Omniverse. It accelerates the development, testing, and deployment of AI-enabled robots by providing a highly realistic and physically accurate virtual environment. Isaac Sim is designed for a wide range of robotics applications, from manufacturing and logistics to healthcare and autonomous vehicles.",
+  "source": "@site/docs/module3-ai-brain/chapter1-isaac-sim-introduction.mdx",
+  "sourceDirName": "module3-ai-brain",
+  "slug": "/module3-ai-brain/chapter1-isaac-sim-introduction",
+  "permalink": "/docs/module3-ai-brain/chapter1-isaac-sim-introduction",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/module3-ai-brain/chapter1-isaac-sim-introduction.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "courseSidebar",
+  "previous": {
+    "title": "Module 3: The AI-Robot Brain (NVIDIA Isaac)",
+    "permalink": "/docs/category/module-3-the-ai-robot-brain-nvidia-isaac"
+  },
+  "next": {
+    "title": "Chapter 2: Isaac Sim for Advanced Perception Tasks",
+    "permalink": "/docs/module3-ai-brain/chapter2-isaac-perception-tasks"
+  }
+}

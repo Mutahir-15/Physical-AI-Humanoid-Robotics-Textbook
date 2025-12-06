@@ -1,0 +1,29 @@
+{
+  "id": "module2-digital-twin/chapter4-unity-robot-model-import",
+  "title": "Unity Robot Model Import",
+  "description": "Covering guidance on exporting/importing robot models between Gazebo and Unity (2023 LTS).",
+  "source": "@site/docs/module2-digital-twin/chapter4-unity-robot-model-import.mdx",
+  "sourceDirName": "module2-digital-twin",
+  "slug": "/module2-digital-twin/chapter4-unity-robot-model-import",
+  "permalink": "/docs/module2-digital-twin/chapter4-unity-robot-model-import",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/module2-digital-twin/chapter4-unity-robot-model-import.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "title": "Unity Robot Model Import",
+    "description": "Covering guidance on exporting/importing robot models between Gazebo and Unity (2023 LTS).",
+    "sidebar_position": 4
+  },
+  "sidebar": "courseSidebar",
+  "previous": {
+    "title": "ROS 2 Gazebo Integration",
+    "permalink": "/docs/module2-digital-twin/chapter3-ros2-gazebo-integration"
+  },
+  "next": {
+    "title": "Unity Physics and Sensors",
+    "permalink": "/docs/module2-digital-twin/chapter5-unity-physics-sensors"
+  }
+}

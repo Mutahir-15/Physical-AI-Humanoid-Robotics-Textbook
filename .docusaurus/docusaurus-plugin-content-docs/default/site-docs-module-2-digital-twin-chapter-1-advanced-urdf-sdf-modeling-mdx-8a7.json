@@ -1,0 +1,29 @@
+{
+  "id": "module2-digital-twin/chapter1-advanced-urdf-sdf-modeling",
+  "title": "Advanced URDF/SDF Modeling",
+  "description": "Covering advanced URDF/SDF modeling for humanoids.",
+  "source": "@site/docs/module2-digital-twin/chapter1-advanced-urdf-sdf-modeling.mdx",
+  "sourceDirName": "module2-digital-twin",
+  "slug": "/module2-digital-twin/chapter1-advanced-urdf-sdf-modeling",
+  "permalink": "/docs/module2-digital-twin/chapter1-advanced-urdf-sdf-modeling",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/module2-digital-twin/chapter1-advanced-urdf-sdf-modeling.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "title": "Advanced URDF/SDF Modeling",
+    "description": "Covering advanced URDF/SDF modeling for humanoids.",
+    "sidebar_position": 1
+  },
+  "sidebar": "courseSidebar",
+  "previous": {
+    "title": "Module 2: The Digital Twin (Gazebo & Unity)",
+    "permalink": "/docs/category/module-2-the-digital-twin-gazebo--unity"
+  },
+  "next": {
+    "title": "Gazebo Environment and Physics",
+    "permalink": "/docs/module2-digital-twin/chapter2-gazebo-environment-physics"
+  }
+}

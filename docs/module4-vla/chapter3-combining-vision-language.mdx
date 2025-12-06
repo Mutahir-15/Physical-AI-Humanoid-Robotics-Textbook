@@ -56,7 +56,7 @@ graph TD
 
 <h3>Key Stages</h3>
 
-*   **Visual Perception**: Processes raw sensor data to extract meaningful information about the environment (objects, their properties, spatial relationships). Isaac ROS plays a significant role here with GPU-accelerated modules.
+*   **Visual Perception**: Processes raw sensor data to extract meaningful information about the environment (objects, their properties, spatial relationships). Leveraging the high-fidelity sensor models and synthetic data generation capabilities of **NVIDIA Isaac Sim**, as explored in Module 3, provides a robust foundation for this stage. Isaac ROS further accelerates this with GPU-powered modules for perception tasks.
 *   **Language Understanding**: Uses LLMs to parse the intent and details of the natural language command.
 *   **Vision-Language Fusion**: This is the core integration point. Here, the linguistic intent is "grounded" in the visual perception. For instance, the LLM-identified "red ball" is matched with the visually detected red sphere in the environment. This might involve:
     *   **Referencing**: Linking words to visual referents.

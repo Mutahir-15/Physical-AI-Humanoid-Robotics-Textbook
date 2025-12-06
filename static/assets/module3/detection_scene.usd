@@ -1,33 +1,27 @@
 #usda 1.0
 (
-    doc = "Conceptual USD scene for object detection in Isaac Sim. To be replaced with an actual scene definition."
+    defaultPrim = "World"
     metersPerUnit = 1
     upAxis = "Z"
 )
 
 def Xform "World"
 {
-    def Scope "Looks"
+    def Xform "Environments"
     {
     }
 
-    def Xform "Ground"
+    def Xform "Looks"
     {
-        # Placeholder for ground plane
     }
 
-    def Xform "Objects"
+    def Xform "Props"
     {
-        # Placeholder for detected objects
-        def Xform "Cube"
+        def Cube "Cube"
         {
-            float3 xformOp:translate = (100, 0, 0)
-            uniform token[] xformOp:order = ["xformOp:translate"]
-            
-            def Sphere "mesh"
-            {
-                double radius = 50
-            }
+            float3 xformOp:scale = (0.5, 0.5, 0.5)
+            float3 xformOp:translate = (0, 0, 0.25)
+            uniform token[] xformOp:order = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
     }
 }

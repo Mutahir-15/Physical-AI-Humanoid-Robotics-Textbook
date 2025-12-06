@@ -1,0 +1,29 @@
+{
+  "id": "module3-ai-brain/isaac-ros-integration",
+  "title": "ROS 2 Isaac Sim Integration",
+  "description": "Covering ROS 2 integration with Isaac Sim.",
+  "source": "@site/docs/module3-ai-brain/isaac-ros-integration.mdx",
+  "sourceDirName": "module3-ai-brain",
+  "slug": "/module3-ai-brain/isaac-ros-integration",
+  "permalink": "/docs/module3-ai-brain/isaac-ros-integration",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/module3-ai-brain/isaac-ros-integration.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 8,
+  "frontMatter": {
+    "title": "ROS 2 Isaac Sim Integration",
+    "description": "Covering ROS 2 integration with Isaac Sim.",
+    "sidebar_position": 8
+  },
+  "sidebar": "courseSidebar",
+  "previous": {
+    "title": "Motion Planning Workflow Diagram (Conceptual)",
+    "permalink": "/docs/module3-ai-brain/motion-planning-workflow-diagram"
+  },
+  "next": {
+    "title": "Module 4: Vision-Language-Action (VLA Robotics)",
+    "permalink": "/docs/category/module-4-vision-language-action-vla-robotics"
+  }
+}

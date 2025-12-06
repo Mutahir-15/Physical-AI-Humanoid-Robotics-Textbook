@@ -1,0 +1,29 @@
+{
+  "id": "module1-ros2/chapter5-simulation-instructions",
+  "title": "Basic Robot Control in Simulation",
+  "description": "Step-by-step simulation instructions for basic robot control (moving joints/base) in a simulated environment (e.g., Gazebo or Rviz).",
+  "source": "@site/docs/module1-ros2/chapter5-simulation-instructions.mdx",
+  "sourceDirName": "module1-ros2",
+  "slug": "/module1-ros2/chapter5-simulation-instructions",
+  "permalink": "/docs/module1-ros2/chapter5-simulation-instructions",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/module1-ros2/chapter5-simulation-instructions.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "title": "Basic Robot Control in Simulation",
+    "description": "Step-by-step simulation instructions for basic robot control (moving joints/base) in a simulated environment (e.g., Gazebo or Rviz).",
+    "sidebar_position": 5
+  },
+  "sidebar": "courseSidebar",
+  "previous": {
+    "title": "Robot Description with URDF and TF2",
+    "permalink": "/docs/module1-ros2/chapter4-robot-description-with-urdf"
+  },
+  "next": {
+    "title": "Module 2: The Digital Twin (Gazebo & Unity)",
+    "permalink": "/docs/category/module-2-the-digital-twin-gazebo--unity"
+  }
+}

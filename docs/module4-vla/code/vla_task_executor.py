@@ -3,6 +3,8 @@ from rclpy.node import Node
 from std_msgs.msg import String
 from vision_msgs.msg import Detection2DArray # Example vision message
 from geometry_msgs.msg import PoseStamped # Example for object pose
+# Conceptual import for Isaac Sim core functionalities
+# import omni.isaac.core as ic # Uncomment in a full Isaac Sim environment
 
 class VLATaskExecutorNode(Node):
     def __init__(self):
@@ -40,6 +42,10 @@ class VLATaskExecutorNode(Node):
     def _execute_vla_task(self):
         if self.current_action_sequence and self.current_detections:
             self.get_logger().info('Attempting to execute VLA task by fusing information...')
+            # In a full Isaac Sim integration, 'ic.World.instance()' would be used to access the simulation world.
+            # Vision data ('current_detections') would typically come from Isaac Sim's synthetic sensors
+            # or processed via an Isaac ROS pipeline, potentially through the 'isaac_ros_bridge.py'
+            # developed in Module 3. Command execution might also involve Isaac Sim's physics and robotics APIs.
             
             # Simple example: look for "blue block" in action sequence and detections
             if "blue_block" in self.current_action_sequence:

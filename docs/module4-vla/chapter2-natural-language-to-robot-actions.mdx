@@ -69,14 +69,16 @@ The LLM might output a structured representation like:
 
 <h3>Task Planner Generation</h3>
 
-The Robotic Task Planner would then convert this into an action sequence:
+The Robotic Task Planner would then convert this into an action sequence, composing complex actions like "Pick" and "Place" from simpler ones:
 
 ```text
+# For "Pick the blue block"
 1. navigate_to(blue_block_location)
 2. look_at(blue_block)
 3. detect_object(blue_block)
 4. reach(blue_block_grasp_pose)
 5. grasp(blue_block)
+# For "Place the blue block on the red mat" (assuming block is already grasped)
 6. navigate_to(red_mat_location)
 7. place(blue_block, red_mat_surface)
 8. release(blue_block)
