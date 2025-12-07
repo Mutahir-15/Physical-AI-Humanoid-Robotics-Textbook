@@ -39,15 +39,15 @@ export default [
   },
   {
     path: '/docs',
-    component: ComponentCreator('/docs', 'fdc'),
+    component: ComponentCreator('/docs', '283'),
     routes: [
       {
         path: '/docs',
-        component: ComponentCreator('/docs', '4f0'),
+        component: ComponentCreator('/docs', '0f9'),
         routes: [
           {
             path: '/docs',
-            component: ComponentCreator('/docs', '184'),
+            component: ComponentCreator('/docs', '878'),
             routes: [
               {
                 path: '/docs/capstone',
@@ -68,36 +68,6 @@ export default [
                 sidebar: "courseSidebar"
               },
               {
-                path: '/docs/category/capstone-project',
-                component: ComponentCreator('/docs/category/capstone-project', 'c17'),
-                exact: true,
-                sidebar: "courseSidebar"
-              },
-              {
-                path: '/docs/category/module-1-the-robotic-nervous-system-ros-2',
-                component: ComponentCreator('/docs/category/module-1-the-robotic-nervous-system-ros-2', '782'),
-                exact: true,
-                sidebar: "courseSidebar"
-              },
-              {
-                path: '/docs/category/module-2-the-digital-twin-gazebo--unity',
-                component: ComponentCreator('/docs/category/module-2-the-digital-twin-gazebo--unity', '152'),
-                exact: true,
-                sidebar: "courseSidebar"
-              },
-              {
-                path: '/docs/category/module-3-the-ai-robot-brain-nvidia-isaac',
-                component: ComponentCreator('/docs/category/module-3-the-ai-robot-brain-nvidia-isaac', '150'),
-                exact: true,
-                sidebar: "courseSidebar"
-              },
-              {
-                path: '/docs/category/module-4-vision-language-action-vla-robotics',
-                component: ComponentCreator('/docs/category/module-4-vision-language-action-vla-robotics', '21c'),
-                exact: true,
-                sidebar: "courseSidebar"
-              },
-              {
                 path: '/docs/contributing',
                 component: ComponentCreator('/docs/contributing', '12c'),
                 exact: true,
@@ -111,15 +81,13 @@ export default [
               },
               {
                 path: '/docs/deployment/guide',
-                component: ComponentCreator('/docs/deployment/guide', 'fe7'),
-                exact: true,
-                sidebar: "courseSidebar"
+                component: ComponentCreator('/docs/deployment/guide', 'ae1'),
+                exact: true
               },
               {
                 path: '/docs/intro',
-                component: ComponentCreator('/docs/intro', 'f7a'),
-                exact: true,
-                sidebar: "courseSidebar"
+                component: ComponentCreator('/docs/intro', '853'),
+                exact: true
               },
               {
                 path: '/docs/module1-ros2',
@@ -273,9 +241,8 @@ export default [
               },
               {
                 path: '/docs/uat/uat-checklist',
-                component: ComponentCreator('/docs/uat/uat-checklist', '64f'),
-                exact: true,
-                sidebar: "courseSidebar"
+                component: ComponentCreator('/docs/uat/uat-checklist', '809'),
+                exact: true
               }
             ]
           }

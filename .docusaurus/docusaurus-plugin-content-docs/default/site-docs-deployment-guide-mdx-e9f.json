@@ -14,14 +14,5 @@
   "sidebarPosition": 1,
   "frontMatter": {
     "sidebar_position": 1
-  },
-  "sidebar": "courseSidebar",
-  "previous": {
-    "title": "Content Style Guide",
-    "permalink": "/docs/contributing/style-guide"
-  },
-  "next": {
-    "title": "User Acceptance Testing (UAT) Checklist: Physical AI & Humanoid Robotics Course",
-    "permalink": "/docs/uat/uat-checklist"
   }
 }

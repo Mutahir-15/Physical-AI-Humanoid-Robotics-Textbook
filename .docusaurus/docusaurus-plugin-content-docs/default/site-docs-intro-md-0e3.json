@@ -14,10 +14,5 @@
   "sidebarPosition": 1,
   "frontMatter": {
     "sidebar_position": 1
-  },
-  "sidebar": "courseSidebar",
-  "next": {
-    "title": "Module 1: The Robotic Nervous System (ROS 2)",
-    "permalink": "/docs/category/module-1-the-robotic-nervous-system-ros-2"
   }
 }

@@ -14,14 +14,5 @@
   "sidebarPosition": 1,
   "frontMatter": {
     "sidebar_position": 1
-  },
-  "sidebar": "courseSidebar",
-  "previous": {
-    "title": "Deployment and Maintenance Guide",
-    "permalink": "/docs/deployment/guide"
-  },
-  "next": {
-    "title": "Module 1: The Robotic Nervous System (ROS 2)",
-    "permalink": "/docs/module1-ros2"
   }
 }

@@ -14,11 +14,7 @@
   "frontMatter": {},
   "sidebar": "courseSidebar",
   "previous": {
-    "title": "Capstone Project Evaluation Criteria",
-    "permalink": "/docs/capstone/evaluation"
-  },
-  "next": {
-    "title": "Deployment and Maintenance Guide",
-    "permalink": "/docs/deployment/guide"
+    "title": "Contributing",
+    "permalink": "/docs/contributing"
   }
 }

@@ -20,7 +20,7 @@
   "sidebar": "courseSidebar",
   "previous": {
     "title": "Module 1: The Robotic Nervous System (ROS 2)",
-    "permalink": "/docs/category/module-1-the-robotic-nervous-system-ros-2"
+    "permalink": "/docs/module1-ros2"
   },
   "next": {
     "title": "ROS 2 Communication Patterns",

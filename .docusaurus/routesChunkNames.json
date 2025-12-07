@@ -77,17 +77,17 @@
     "sidebar": "814f3328",
     "content": "a951fea5"
   },
-  "/docs-fdc": {
+  "/docs-283": {
     "__comp": "5e95c892",
     "__context": {
       "plugin": "aba21aa0"
     }
   },
-  "/docs-4f0": {
+  "/docs-0f9": {
     "__comp": "a7bd4aaa",
     "__props": "0058b4c6"
   },
-  "/docs-184": {
+  "/docs-878": {
     "__comp": "a94703ab"
   },
   "/docs/capstone-983": {
@@ -102,26 +102,6 @@
     "__comp": "17896441",
     "content": "6efa5cab"
   },
-  "/docs/category/capstone-project-c17": {
-    "__comp": "14eb3368",
-    "__props": "a227b257"
-  },
-  "/docs/category/module-1-the-robotic-nervous-system-ros-2-782": {
-    "__comp": "14eb3368",
-    "__props": "b0c0e2a5"
-  },
-  "/docs/category/module-2-the-digital-twin-gazebo--unity-152": {
-    "__comp": "14eb3368",
-    "__props": "9690dc75"
-  },
-  "/docs/category/module-3-the-ai-robot-brain-nvidia-isaac-150": {
-    "__comp": "14eb3368",
-    "__props": "22571e06"
-  },
-  "/docs/category/module-4-vision-language-action-vla-robotics-21c": {
-    "__comp": "14eb3368",
-    "__props": "a40dd27e"
-  },
   "/docs/contributing-12c": {
     "__comp": "14eb3368",
     "__props": "2b9499ff"
@@ -130,11 +110,11 @@
     "__comp": "17896441",
     "content": "0c21af39"
   },
-  "/docs/deployment/guide-fe7": {
+  "/docs/deployment/guide-ae1": {
     "__comp": "17896441",
     "content": "e9f6e77d"
   },
-  "/docs/intro-f7a": {
+  "/docs/intro-853": {
     "__comp": "17896441",
     "content": "0e384e19"
   },
@@ -238,7 +218,7 @@
     "__comp": "17896441",
     "content": "a0fc5ad2"
   },
-  "/docs/uat/uat-checklist-64f": {
+  "/docs/uat/uat-checklist-809": {
     "__comp": "17896441",
     "content": "63dffead"
   },

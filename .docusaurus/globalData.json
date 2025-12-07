@@ -8,7 +8,7 @@
           "label": "Next",
           "isLast": true,
           "path": "/docs",
-          "mainDocId": "intro",
+          "mainDocId": "module1-ros2/chapter1-introduction-to-ros2",
           "docs": [
             {
               "id": "capstone/evaluation",
@@ -27,13 +27,11 @@
             },
             {
               "id": "deployment/guide",
-              "path": "/docs/deployment/guide",
-              "sidebar": "courseSidebar"
+              "path": "/docs/deployment/guide"
             },
             {
               "id": "intro",
-              "path": "/docs/intro",
-              "sidebar": "courseSidebar"
+              "path": "/docs/intro"
             },
             {
               "id": "module1-ros2/chapter1-introduction-to-ros2",
@@ -142,33 +140,7 @@
             },
             {
               "id": "uat/uat-checklist",
-              "path": "/docs/uat/uat-checklist",
-              "sidebar": "courseSidebar"
-            },
-            {
-              "id": "/category/module-1-the-robotic-nervous-system-ros-2",
-              "path": "/docs/category/module-1-the-robotic-nervous-system-ros-2",
-              "sidebar": "courseSidebar"
-            },
-            {
-              "id": "/category/module-2-the-digital-twin-gazebo--unity",
-              "path": "/docs/category/module-2-the-digital-twin-gazebo--unity",
-              "sidebar": "courseSidebar"
-            },
-            {
-              "id": "/category/module-3-the-ai-robot-brain-nvidia-isaac",
-              "path": "/docs/category/module-3-the-ai-robot-brain-nvidia-isaac",
-              "sidebar": "courseSidebar"
-            },
-            {
-              "id": "/category/module-4-vision-language-action-vla-robotics",
-              "path": "/docs/category/module-4-vision-language-action-vla-robotics",
-              "sidebar": "courseSidebar"
-            },
-            {
-              "id": "/category/capstone-project",
-              "path": "/docs/category/capstone-project",
-              "sidebar": "courseSidebar"
+              "path": "/docs/uat/uat-checklist"
             },
             {
               "id": "/module1-ros2",
@@ -205,8 +177,8 @@
           "sidebars": {
             "courseSidebar": {
               "link": {
-                "path": "/docs/intro",
-                "label": "intro"
+                "path": "/docs/module1-ros2",
+                "label": "Module 1: The Robotic Nervous System (ROS 2)"
               }
             }
           }
