@@ -38,16 +38,21 @@ export default [
     exact: true
   },
   {
+    path: '/chat',
+    component: ComponentCreator('/chat', '4b9'),
+    exact: true
+  },
+  {
     path: '/docs',
-    component: ComponentCreator('/docs', '283'),
+    component: ComponentCreator('/docs', 'ee6'),
     routes: [
       {
         path: '/docs',
-        component: ComponentCreator('/docs', '0f9'),
+        component: ComponentCreator('/docs', '975'),
         routes: [
           {
             path: '/docs',
-            component: ComponentCreator('/docs', '878'),
+            component: ComponentCreator('/docs', 'b01'),
             routes: [
               {
                 path: '/docs/capstone',
@@ -66,6 +71,11 @@ export default [
                 component: ComponentCreator('/docs/capstone/overview', 'b3d'),
                 exact: true,
                 sidebar: "courseSidebar"
+              },
+              {
+                path: '/docs/chat/',
+                component: ComponentCreator('/docs/chat/', '93c'),
+                exact: true
               },
               {
                 path: '/docs/contributing',
@@ -238,6 +248,31 @@ export default [
                 component: ComponentCreator('/docs/module4-vla/chapter4-reactive-control-strategies', '7bb'),
                 exact: true,
                 sidebar: "courseSidebar"
+              },
+              {
+                path: '/docs/rag_chatbot/chunking_strategy',
+                component: ComponentCreator('/docs/rag_chatbot/chunking_strategy', 'cba'),
+                exact: true
+              },
+              {
+                path: '/docs/rag_chatbot/contextual_boundaries',
+                component: ComponentCreator('/docs/rag_chatbot/contextual_boundaries', '8b9'),
+                exact: true
+              },
+              {
+                path: '/docs/rag_chatbot/db_schema',
+                component: ComponentCreator('/docs/rag_chatbot/db_schema', '8f4'),
+                exact: true
+              },
+              {
+                path: '/docs/rag_chatbot/indexing_pipeline',
+                component: ComponentCreator('/docs/rag_chatbot/indexing_pipeline', 'af9'),
+                exact: true
+              },
+              {
+                path: '/docs/rag_chatbot/vector_indexing',
+                component: ComponentCreator('/docs/rag_chatbot/vector_indexing', '2b6'),
+                exact: true
               },
               {
                 path: '/docs/uat/uat-checklist',

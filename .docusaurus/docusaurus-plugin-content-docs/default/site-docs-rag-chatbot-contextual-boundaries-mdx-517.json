@@ -1,0 +1,18 @@
+{
+  "id": "rag_chatbot/contextual_boundaries",
+  "title": "Contextual Boundaries and Citation Policy",
+  "description": "Overview",
+  "source": "@site/docs/rag_chatbot/contextual_boundaries.mdx",
+  "sourceDirName": "rag_chatbot",
+  "slug": "/rag_chatbot/contextual_boundaries",
+  "permalink": "/docs/rag_chatbot/contextual_boundaries",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/rag_chatbot/contextual_boundaries.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Contextual Boundaries and Citation Policy",
+    "sidebar_label": "Contextual Boundaries"
+  }
+}

@@ -1,0 +1,10 @@
+asyncpg
+fastapi
+python-dotenv
+uvicorn
+cohere
+qdrant-client
+langchain
+pydantic
+google-generativeai
+requests

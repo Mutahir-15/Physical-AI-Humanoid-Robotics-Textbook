@@ -5,7 +5,21 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Physical AI & Humanoid Robotics Book',
   tagline: 'Learn to build intelligent robots',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/docusourus.jpg',
+
+  customFields: {
+    // API URL for the chatbot backend
+    // Can be overridden by the RETRIEVAL_API_URL environment variable
+    retrievalApiUrl: process.env.RETRIEVAL_API_URL || 'http://localhost:8000',
+  },
+
+  scripts: [
+    {
+      src: 'YOUR_CHATKIT_CDN_EMBED_SCRIPT_URL', // Replace with your actual ChatKit embed script URL
+      async: true,
+      defer: true,
+    },
+  ],
 
   // Set the production url of your site here
   url: 'https://Mutahir-15.github.io', // TODO: Update with your actual GitHub username
@@ -16,7 +30,7 @@ const config: Config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'Mutahir-15', // TODO: Update with your GitHub org/user name
-  projectName: 'spec-driven-online-hackathon-1', // TODO: Update with your GitHub repo name
+  projectName: 'Physical-AI-Humanoid-Robotics-Textbook', // TODO: Update with your GitHub repo name
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -72,6 +86,11 @@ const config: Config = {
           sidebarId: 'courseSidebar',
           position: 'left',
           label: 'Book',
+        },
+        {
+          to: '/chat',
+          label: 'Chat',
+          position: 'left',
         },
       ],
     },

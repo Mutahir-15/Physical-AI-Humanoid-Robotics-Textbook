@@ -1,0 +1,18 @@
+{
+  "id": "rag_chatbot/chunking_strategy",
+  "title": "Chunking Strategy for RAG Chatbot",
+  "description": "Overview",
+  "source": "@site/docs/rag_chatbot/chunking_strategy.mdx",
+  "sourceDirName": "rag_chatbot",
+  "slug": "/rag_chatbot/chunking_strategy",
+  "permalink": "/docs/rag_chatbot/chunking_strategy",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/rag_chatbot/chunking_strategy.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Chunking Strategy for RAG Chatbot",
+    "sidebar_label": "Chunking Strategy"
+  }
+}

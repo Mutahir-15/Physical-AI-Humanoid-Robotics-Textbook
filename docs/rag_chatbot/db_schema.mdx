@@ -1,0 +1,94 @@
+---
+title: Database Schema for RAG Chatbot Metadata
+sidebar_label: DB Schema
+---
+
+## Overview
+
+This document defines the database schema for storing metadata associated with the text chunks in the Retrieval-Augmented Generation (RAG) system. Neon Serverless Postgres is used as the metadata store.
+
+## `chunks` Table Schema
+
+The primary table, `chunks`, will store essential metadata for each processed text chunk.
+
+```sql
+CREATE TABLE IF NOT EXISTS chunks (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    chunk_id TEXT UNIQUE NOT NULL,       -- Unique identifier for the chunk (e.g., hash of content + source)
+    source_path TEXT NOT NULL,           -- Path to the original MDX file
+    chapter TEXT,                        -- Extracted chapter title from MDX frontmatter/headers
+    section TEXT,                        -- Extracted section title
+    text_content TEXT NOT NULL,          -- The actual text content of the chunk
+    token_count INTEGER NOT NULL,        -- Number of tokens in the chunk (using Cohere's tokenizer)
+    start_position INTEGER,              -- Starting character position of the chunk in the original document
+    end_position INTEGER,                -- Ending character position
+    embedding_vector_id UUID,            -- Foreign key to Qdrant if separate ID used, or just logical link
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Index on source_path for efficient retrieval of chunks by document
+CREATE INDEX IF NOT EXISTS idx_chunks_source_path ON chunks (source_path);
+
+-- Index on chapter and section for hierarchical content retrieval
+CREATE INDEX IF NOT EXISTS idx_chunks_chapter_section ON chunks (chapter, section);
+```
+
+## `document_versions` Table Schema
+
+To manage updates and maintain history of ingested documents, a `document_versions` table might be considered (optional for MVP).
+
+```sql
+-- Optional: For tracking versions of source documents
+CREATE TABLE IF NOT EXISTS document_versions (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    source_path TEXT UNIQUE NOT NULL,    -- Path to the original MDX file
+    last_ingested_hash TEXT NOT NULL,    -- Hash of the document content at last ingestion
+    last_ingested_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+## Sample Queries
+
+### Insert a new chunk
+
+```sql
+INSERT INTO chunks (chunk_id, source_path, chapter, section, text_content, token_count, start_position, end_position)
+VALUES (
+    'unique-chunk-hash-123',
+    'docs/module1-ros2/chapter1.mdx',
+    'Introduction to ROS 2',
+    'ROS 2 Nodes',
+    'ROS 2 nodes are ...',
+    500,
+    1200,
+    1750
+);
+```
+
+### Retrieve chunks for a specific document
+
+```sql
+SELECT id, chunk_id, chapter, section, text_content
+FROM chunks
+WHERE source_path = 'docs/module1-ros2/chapter1.mdx'
+ORDER BY start_position;
+```
+
+### Update a chunk's content
+
+```sql
+UPDATE chunks
+SET
+    text_content = 'Updated ROS 2 node description...',
+    token_count = 510,
+    updated_at = CURRENT_TIMESTAMP
+WHERE chunk_id = 'unique-chunk-hash-123';
+```
+
+### Delete all chunks from a document
+
+```sql
+DELETE FROM chunks
+WHERE source_path = 'docs/module1-ros2/chapter1.mdx';
+```

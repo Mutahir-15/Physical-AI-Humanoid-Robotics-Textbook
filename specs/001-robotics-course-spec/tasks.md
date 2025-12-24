@@ -129,7 +129,7 @@ Objective: Comprehensive review, finalization, and deployment of the book.
 
 Objective: Prepare book content and metadata strategies for future RAG chatbot integration.
 
--   [ ] T065 Outline text chunking strategy for book content `docs/rag_chatbot/chunking_strategy.mdx`.
--   [ ] T066 Draft high-level Neon Postgres schema for storing book content metadata `docs/rag_chatbot/db_schema.mdx`.
--   [ ] T067 Draft Qdrant vector indexing strategy for efficient semantic search `docs/rag_chatbot/vector_indexing.mdx`.
--   [ ] T068 Document chatbot contextual boundaries and scope of knowledge `docs/rag_chatbot/contextual_boundaries.mdx`.
+- [x] T065 Outline text chunking strategy for book content `docs/rag_chatbot/chunking_strategy.mdx`.
+- [x] T066 Draft high-level Neon Postgres schema for storing book content metadata `docs/rag_chatbot/db_schema.mdx`.
+- [x] T067 Draft Qdrant vector indexing strategy for efficient semantic search `docs/rag_chatbot/vector_indexing.mdx`.
+- [x] T068 Document chatbot contextual boundaries and scope of knowledge `docs/rag_chatbot/contextual_boundaries.mdx`.

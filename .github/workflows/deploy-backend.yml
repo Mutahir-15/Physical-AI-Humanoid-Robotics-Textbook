@@ -1,0 +1,67 @@
+name: Deploy RAG Chatbot Backend
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'backend/**' # Trigger only if changes in backend directory
+      - '.github/workflows/deploy-backend.yml'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    # Setup Python (assuming backend is Python)
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    # Install dependencies
+    - name: Install dependencies
+      run: pip install -r backend/requirements.txt
+
+    # Build and push Docker image (example for Docker-based deployment)
+    # This example assumes you have Docker Hub or a similar registry set up
+    # and configured with secrets for login.
+    - name: Login to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_TOKEN }}
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v4
+      with:
+        context: .
+        file: backend/Dockerfile
+        push: true
+        tags: yourusername/rag-chatbot-backend:latest # Replace with your Docker image name
+
+    # Example: Deploy to Render (using Render CLI if available, or direct API call)
+    # This is highly dependent on your chosen deployment platform.
+    # For Render, you'd typically connect your GitHub repo and they auto-deploy
+    # based on render.yaml. Manual trigger via API might be an alternative.
+    - name: Trigger Render Deploy (if applicable)
+      # This step is conceptual. Render typically auto-deploys on push
+      # if connected to GitHub. For explicit triggering, you'd use their API.
+      run: echo "Render deployment triggered automatically or manually configured."
+      # Replace with actual Render deploy command if using Render CLI or API
+      # - name: Deploy to Render
+      #   uses: akhileshns/heroku-deploy@v3.12.12 # Example if deploying to Heroku for Python
+      #   with:
+      #     heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+      #     heroku_app_name: "your-render-app-name" # Must be unique in Heroku
+      #     heroku_email: "your-email@example.com"
+
+    # Example: Deploy Docusaurus site to GitHub Pages (T094 for frontend part)
+    # This would be in a separate workflow or managed by Docusaurus's own deploy script
+    - name: Deploy Docusaurus to GitHub Pages (Conceptual)
+      run: echo "Docusaurus deployment to GitHub Pages handled by Docusaurus's built-in deploy script or a separate workflow."
+      # uses: peaceiris/actions-gh-pages@v3
+      # with:
+      #   github_token: ${{ secrets.GITHUB_TOKEN }}
+      #   publish_dir: ./build # Assuming your Docusaurus build output is in 'build'

@@ -1,0 +1,43 @@
+---
+title: RAG Chatbot
+sidebar_label: RAG Chatbot
+---
+
+# Ask the RAG Chatbot!
+
+This page hosts the RAG Chatbot, providing instant answers to your questions about the "Physical AI & Humanoid Robotics Course" book.
+
+## How to Use:
+
+1.  **Ask a Question**: Type your question in the chat box below and press Enter or click "Send".
+2.  **Query Selected Text**: Select any text on the Docusaurus page. (Future: A context menu or button will appear to query the chatbot specifically about your selection.)
+
+<iframe
+  src="/chat-widget/"
+  width="100%"
+  height="600px"
+  frameBorder="0"
+  style={{ border: '1px solid #ccc', borderRadius: '8px' }}
+></iframe>
+
+:::tip Note
+The chatbot's knowledge is strictly limited to the content of this book. It cannot answer questions outside of this scope.
+:::
+
+## Development Notes:
+
+The iframe points to a static HTML file that is part of the Docusaurus build process.
+The `client.js` inside the iframe handles communication with the FastAPI backend.
+In a full Docusaurus integration, you would typically configure Docusaurus to copy the `frontend/chat_widget` contents to a static directory accessible via `/chat-widget/`.
+
+To enable the `/chat-widget/` path, ensure your `docusaurus.config.js` or `sidebars.js` (for navigation) is updated, and that the widget files are copied to the `static` directory or served correctly.
+
+Example `docusaurus.config.js` entry (conceptual):
+```javascript
+module.exports = {
+  // ... other configs
+  staticDirectories: ['static', 'frontend/chat_widget'], // This line is conceptual
+  // ...
+};
+```
+This is a placeholder for `docusaurus.config.js` configuration which would usually be handled directly in the docusaurus configuration files.

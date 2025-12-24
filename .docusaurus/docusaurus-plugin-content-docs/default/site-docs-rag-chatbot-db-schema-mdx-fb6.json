@@ -1,0 +1,18 @@
+{
+  "id": "rag_chatbot/db_schema",
+  "title": "Database Schema for RAG Chatbot Metadata",
+  "description": "Overview",
+  "source": "@site/docs/rag_chatbot/db_schema.mdx",
+  "sourceDirName": "rag_chatbot",
+  "slug": "/rag_chatbot/db_schema",
+  "permalink": "/docs/rag_chatbot/db_schema",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/rag_chatbot/db_schema.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Database Schema for RAG Chatbot Metadata",
+    "sidebar_label": "DB Schema"
+  }
+}

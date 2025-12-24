@@ -4,13 +4,23 @@
  * Modify the docusaurus.config.js file at your site's root instead.
  */
 export default {
-  "title": "Physical AI & Humanoid Robotics Course",
+  "title": "Physical AI & Humanoid Robotics Book",
   "tagline": "Learn to build intelligent robots",
-  "favicon": "img/favicon.ico",
+  "favicon": "img/docusourus.jpg",
+  "customFields": {
+    "retrievalApiUrl": "http://localhost:8000"
+  },
+  "scripts": [
+    {
+      "src": "YOUR_CHATKIT_CDN_EMBED_SCRIPT_URL",
+      "async": true,
+      "defer": true
+    }
+  ],
   "url": "https://Mutahir-15.github.io",
   "baseUrl": "/",
   "organizationName": "Mutahir-15",
-  "projectName": "spec-driven-online-hackathon-1",
+  "projectName": "Physical-AI-Humanoid-Robotics-Textbook",
   "onBrokenLinks": "throw",
   "i18n": {
     "defaultLocale": "en",
@@ -52,6 +62,11 @@ export default {
           "sidebarId": "courseSidebar",
           "position": "left",
           "label": "Book"
+        },
+        {
+          "to": "/chat",
+          "label": "Chat",
+          "position": "left"
         }
       ],
       "hideOnScroll": false
@@ -355,10 +370,8 @@ export default {
   "staticDirectories": [
     "static"
   ],
-  "customFields": {},
   "plugins": [],
   "themes": [],
-  "scripts": [],
   "headTags": [],
   "stylesheets": [],
   "clientModules": [],

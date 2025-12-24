@@ -77,17 +77,24 @@
     "sidebar": "814f3328",
     "content": "a951fea5"
   },
-  "/docs-283": {
+  "/chat-4b9": {
+    "__comp": "25626d15",
+    "__context": {
+      "plugin": "a7456010"
+    },
+    "config": "5e9f5e1a"
+  },
+  "/docs-ee6": {
     "__comp": "5e95c892",
     "__context": {
       "plugin": "aba21aa0"
     }
   },
-  "/docs-0f9": {
+  "/docs-975": {
     "__comp": "a7bd4aaa",
     "__props": "0058b4c6"
   },
-  "/docs-878": {
+  "/docs-b01": {
     "__comp": "a94703ab"
   },
   "/docs/capstone-983": {
@@ -101,6 +108,10 @@
   "/docs/capstone/overview-b3d": {
     "__comp": "17896441",
     "content": "6efa5cab"
+  },
+  "/docs/chat/-93c": {
+    "__comp": "17896441",
+    "content": "bf8ba399"
   },
   "/docs/contributing-12c": {
     "__comp": "14eb3368",
@@ -217,6 +228,26 @@
   "/docs/module4-vla/chapter4-reactive-control-strategies-7bb": {
     "__comp": "17896441",
     "content": "a0fc5ad2"
+  },
+  "/docs/rag_chatbot/chunking_strategy-cba": {
+    "__comp": "17896441",
+    "content": "eed3f9bf"
+  },
+  "/docs/rag_chatbot/contextual_boundaries-8b9": {
+    "__comp": "17896441",
+    "content": "51768284"
+  },
+  "/docs/rag_chatbot/db_schema-8f4": {
+    "__comp": "17896441",
+    "content": "fb6ad41d"
+  },
+  "/docs/rag_chatbot/indexing_pipeline-af9": {
+    "__comp": "17896441",
+    "content": "6ee1f204"
+  },
+  "/docs/rag_chatbot/vector_indexing-2b6": {
+    "__comp": "17896441",
+    "content": "1d88dd37"
   },
   "/docs/uat/uat-checklist-809": {
     "__comp": "17896441",
