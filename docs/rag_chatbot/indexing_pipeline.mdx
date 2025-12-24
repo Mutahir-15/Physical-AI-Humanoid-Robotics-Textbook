@@ -1,0 +1,78 @@
+# RAG Chatbot: Indexing Pipeline Documentation
+
+## Objective
+
+This document outlines the design and operation of the ingestion pipeline responsible for processing the course book content, generating embeddings, and storing them in Qdrant for efficient semantic search.
+
+## Overview
+
+The `ingestion_pipeline.py` script automates the process of transforming raw Markdown (MDX) content into structured, vectorized data points suitable for a Retrieval-Augmented Generation (RAG) system. It follows the text chunking strategy defined in `chunking_strategy.mdx` and stores data according to the embeddings schema in `db_schema.mdx`.
+
+## Dependencies
+
+To run and extend the `ingestion_pipeline.py` script, you will need the following Python libraries:
+
+*   `os`, `re`: Standard Python libraries for file system operations and regular expressions.
+*   `typing`: Standard Python library for type hints.
+*   `uuid`: Standard Python library for generating unique identifiers.
+*   **`langchain`**: (Optional, commented out in script) For advanced text splitting functionalities (`RecursiveCharacterTextSplitter`). If not using, a simpler splitting logic needs to be implemented or provided.
+*   **`cohere`**: (Commented out in script) The official Cohere Python SDK for generating text embeddings.
+*   **`qdrant-client`**: (Commented out in script) The official Qdrant Python client for interacting with Qdrant vector database.
+
+## Process Flow
+
+The `ingestion_pipeline.py` executes the following sequence of steps:
+
+1.  **Configuration**: Loads configuration parameters such as `DOCS_DIR`, `CHUNK_SIZE`, `CHUNK_OVERLAP`, and API keys from environment variables or default values.
+2.  **Content Loading & Cleaning**:
+    *   Recursively walks through the `DOCS_DIR` (e.g., `../../docs`) to find all `.mdx` files.
+    *   Reads the content of each `.mdx` file.
+    *   Applies the `clean_mdx_content` function to remove Docusaurus-specific syntax, comments, JSX-like tags, and perform basic Markdown-to-plaintext conversion.
+3.  **Metadata Extraction**:
+    *   For each `.mdx` file, `extract_metadata_from_path` infers initial `chapter` and `section` metadata based on the file's path.
+    *   *Note*: More advanced section extraction would involve parsing headings within the cleaned content itself.
+4.  **Text Chunking**:
+    *   The `cleaned_content` is split into smaller, overlapping text chunks using a recursive character splitting approach (or a simplified dummy splitter for demonstration).
+    *   The `CHUNK_SIZE` and `CHUNK_OVERLAP` defined in `chunking_strategy.mdx` are applied.
+5.  **Data Structuring (Schema Adherence)**:
+    *   Each chunk is assigned a unique `id` (using `uuid4`).
+    *   `token_count` is estimated for each chunk.
+    *   The chunk's `chunk_text`, `source_path`, extracted `chapter`, `section`, `token_count`, and any additional `metadata` are assembled into a dictionary, adhering to the `db_schema.mdx`.
+6.  **Embedding Generation (Simulated)**:
+    *   *In a real implementation*, this step would involve calling the Cohere Embed API (`cohere.embed()`) for each `chunk_text` to generate its `embedding_vector`.
+    *   In the provided script, this is simulated by assigning a dummy vector (e.g., 1024 dimensions of zeros) to each chunk.
+7.  **Vector Storage in Qdrant (Simulated)**:
+    *   *In a real implementation*, this step would initialize a Qdrant client (`qdrant_client.QdrantClient`).
+    *   A Qdrant collection (`QDRANT_COLLECTION_NAME`) would be created or recreated with appropriate vector parameters (e.g., vector size, distance metric).
+    *   Each chunk's `id`, `embedding_vector`, and relevant `payload` fields (metadata) would be upserted into the Qdrant collection using `client.upsert()`.
+    *   In the provided script, this process is simulated with print statements indicating the number of points that *would* be upserted.
+
+## Usage
+
+To run the ingestion pipeline (simulated version):
+
+1.  **Ensure Python Environment**: Have Python 3.x installed.
+2.  **Navigate**: Change your current directory to `docs/rag_chatbot/`.
+3.  **Execute**: Run the script from your terminal:
+    ```bash
+    python ingestion_pipeline.py
+    ```
+4.  **Review Output**: Observe the console output for messages indicating file processing, chunk preparation, and simulated embedding/storage.
+
+### Configuration (for real implementation)
+
+For a live deployment, you would configure the following environment variables:
+
+*   `COHERE_API_KEY`: Your API key for Cohere.
+*   `QDRANT_HOST`: The host URL for your Qdrant instance.
+*   `QDRANT_API_KEY`: Your API key for Qdrant.
+
+These would be picked up by the script automatically.
+
+## Extending the Pipeline
+
+*   **Advanced Metadata**: Enhance `extract_metadata_from_path` and `clean_mdx_content` to parse Markdown headings within the content to extract more precise `section` metadata.
+*   **Error Handling**: Implement robust error handling for API calls (Cohere, Qdrant) and file operations.
+*   **Batching**: For large datasets, implement batching for Cohere embedding calls and Qdrant upserts to optimize performance and adhere to API rate limits.
+*   **Logging**: Integrate a logging framework for better monitoring and debugging.
+*   **Pre-commit Hooks/CI Integration**: Ensure the pipeline can be run as part of a CI/CD process to keep the vector database up-to-date with new content.

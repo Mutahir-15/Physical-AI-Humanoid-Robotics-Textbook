@@ -1,0 +1,63 @@
+---
+title: Chunking Strategy for RAG Chatbot
+sidebar_label: Chunking Strategy
+---
+
+## Overview
+
+This document outlines the strategy for chunking Markdown (MDX) content from the Docusaurus book into smaller, semantically coherent units suitable for embedding and retrieval in the Retrieval-Augmented Generation (RAG) system.
+
+## Tokenization
+
+The Cohere `embed-english-v3.0` model's tokenizer will be used for measuring token counts. This ensures consistency between chunk size calculations and the embedding model's understanding of tokens.
+
+## Chunk Size and Overlap
+
+-   **Target Chunk Size**: 300-600 tokens
+    -   This range is chosen to balance semantic completeness within a chunk and to manage the number of tokens sent to the embedding model and the LLM. Larger chunks risk diluting semantic meaning and exceeding context windows, while smaller chunks might lose context.
+-   **Chunk Overlap**: 50 tokens
+    -   Overlap is crucial to maintain context across chunk boundaries, ensuring that information spanning two chunks can still be retrieved effectively. The 50-token overlap provides sufficient contiguous context.
+
+## Chunking Process
+
+1.  **Content Cleaning**: Raw MDX content will first be cleaned to remove Docusaurus-specific syntax, comments, and JSX elements that are not relevant for semantic understanding.
+2.  **Sentence Segmentation**: The cleaned text will be segmented into sentences.
+3.  **Token Count Estimation**: Each sentence (or a group of sentences) will be evaluated for its token count using the Cohere tokenizer.
+4.  **Windowing**: Sentences will be grouped into chunks, adhering to the target chunk size. When a chunk approaches its maximum size, subsequent sentences will form a new chunk, incorporating an overlap from the end of the previous chunk.
+5.  **Metadata Extraction**: Relevant metadata (e.g., `source_path`, `chapter`, `section`, `start_position` within the original document) will be extracted and associated with each chunk.
+
+## Sample Code (Conceptual)
+
+```python
+from cohere_tokenizer import CohereTokenizer # Assuming a Cohere tokenizer library
+from content_cleaner import clean_mdx_content
+import re
+
+tokenizer = CohereTokenizer() # Initialize Cohere tokenizer
+
+def chunk_text(text: str, max_tokens: int = 550, overlap_tokens: int = 50) -> list[str]:
+    cleaned_text = clean_mdx_content(text)
+    sentences = re.split(r'(?<=[.!?])\s+', cleaned_text) # Simple sentence splitter
+
+    chunks = []
+    current_chunk_tokens = []
+    
+    for sentence in sentences:
+        sentence_tokens = tokenizer.tokenize(sentence)
+        if len(current_chunk_tokens) + len(sentence_tokens) <= max_tokens:
+            current_chunk_tokens.extend(sentence_tokens)
+        else:
+            chunks.append(tokenizer.detokenize(current_chunk_tokens))
+            # Create overlap
+            overlap_slice = current_chunk_tokens[-(overlap_tokens):]
+            current_chunk_tokens = overlap_slice + sentence_tokens
+    
+    if current_chunk_tokens:
+        chunks.append(tokenizer.detokenize(current_chunk_tokens))
+        
+    return chunks
+
+# Example Usage
+# mdx_document_content = "..."
+# processed_chunks = chunk_text(mdx_document_content)
+```

@@ -1,0 +1,51 @@
+---
+title: Contextual Boundaries and Citation Policy
+sidebar_label: Contextual Boundaries
+---
+
+## Overview
+
+This document defines the contextual boundaries for the RAG chatbot's knowledge base and establishes a clear citation policy to ensure answers are grounded, transparent, and aligned with the Docusaurus book's content.
+
+## Knowledge Base Scope
+
+The chatbot's knowledge is **strictly limited** to the content of the "Physical AI & Humanoid Robotics Course" Docusaurus book.
+
+### What is In-Scope:
+
+-   All Markdown (MDX) content within the `docs/` directory of the Docusaurus project.
+-   Technical explanations, code snippets, diagrams, and examples provided directly within the book's text.
+-   Information presented as factual within the book's narrative.
+
+### What is Out-of-Scope (and will result in a "cannot answer" response):
+
+-   **Real-time information**: Current weather, news, stock prices, etc.
+-   **External knowledge**: Information not present in the book, even if related to robotics or AI. The chatbot will not perform web searches or consult external databases beyond its indexed content.
+-   **Opinions or subjective assessments**: The chatbot will not offer personal opinions, speculative future predictions, or subjective judgments.
+-   **Interactive tasks**: The chatbot cannot execute code, control robots, or perform actions.
+-   **Sensitive/Harmful content**: Queries related to unethical, illegal, or harmful activities will be rejected.
+
+## Grounding and Hallucination Prevention
+
+The primary mechanism to prevent hallucinations is strict grounding to retrieved content. The LLM will be instructed to:
+1.  Identify relevant information **only** from the provided context.
+2.  If an answer cannot be formed *solely* from the provided context, state that the information is not available in the book.
+3.  Avoid making assumptions or generating content beyond the retrieved passages.
+
+## Citation Policy
+
+To enhance transparency and user trust, the chatbot will provide citations for its answers.
+
+### Citation Rules:
+
+1.  **Direct Quotations**: If a response includes a direct quote from the book, it MUST be enclosed in quotation marks and followed by a clear reference to its source.
+2.  **Paraphrased Information**: If information is paraphrased from a specific section of the book, the response SHOULD include a reference to the relevant section or chapter.
+3.  **Source Identification**: Citations will ideally include:
+    -   **Chapter Title**
+    -   **Section Title** (if applicable)
+    -   **Link to the specific Docusaurus page** (if technically feasible to generate granular links to chunk locations).
+4.  **No Citation if No Grounding**: If the chatbot states that it cannot answer a question (due to out-of-scope content or lack of grounding), no citation will be provided.
+
+## Sample Response with Citation
+
+"ROS 2 nodes are individual computational units that perform a specific task within the ROS 2 graph. They communicate with each other using topics, services, and actions. For example, a camera driver node might publish image data, while an image processing node subscribes to that data to detect objects. (Source: Module 1: ROS 2, Chapter 2: ROS 2 Communication Patterns)."

@@ -21,6 +21,10 @@
               "sidebar": "courseSidebar"
             },
             {
+              "id": "chat/index",
+              "path": "/docs/chat/"
+            },
+            {
               "id": "contributing/style-guide",
               "path": "/docs/contributing/style-guide",
               "sidebar": "courseSidebar"
@@ -137,6 +141,26 @@
               "id": "module4-vla/chapter4-reactive-control-strategies",
               "path": "/docs/module4-vla/chapter4-reactive-control-strategies",
               "sidebar": "courseSidebar"
+            },
+            {
+              "id": "rag_chatbot/chunking_strategy",
+              "path": "/docs/rag_chatbot/chunking_strategy"
+            },
+            {
+              "id": "rag_chatbot/contextual_boundaries",
+              "path": "/docs/rag_chatbot/contextual_boundaries"
+            },
+            {
+              "id": "rag_chatbot/db_schema",
+              "path": "/docs/rag_chatbot/db_schema"
+            },
+            {
+              "id": "rag_chatbot/indexing_pipeline",
+              "path": "/docs/rag_chatbot/indexing_pipeline"
+            },
+            {
+              "id": "rag_chatbot/vector_indexing",
+              "path": "/docs/rag_chatbot/vector_indexing"
             },
             {
               "id": "uat/uat-checklist",

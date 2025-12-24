@@ -1,0 +1,18 @@
+{
+  "id": "rag_chatbot/vector_indexing",
+  "title": "Vector Indexing with Qdrant",
+  "description": "Overview",
+  "source": "@site/docs/rag_chatbot/vector_indexing.mdx",
+  "sourceDirName": "rag_chatbot",
+  "slug": "/rag_chatbot/vector_indexing",
+  "permalink": "/docs/rag_chatbot/vector_indexing",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/rag_chatbot/vector_indexing.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Vector Indexing with Qdrant",
+    "sidebar_label": "Vector Indexing"
+  }
+}

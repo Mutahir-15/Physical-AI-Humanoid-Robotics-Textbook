@@ -1,0 +1,18 @@
+{
+  "id": "chat/index",
+  "title": "RAG Chatbot",
+  "description": "This page hosts the RAG Chatbot, providing instant answers to your questions about the \"Physical AI & Humanoid Robotics Course\" book.",
+  "source": "@site/docs/chat/index.mdx",
+  "sourceDirName": "chat",
+  "slug": "/chat/",
+  "permalink": "/docs/chat/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/chat/index.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "RAG Chatbot",
+    "sidebar_label": "RAG Chatbot"
+  }
+}
