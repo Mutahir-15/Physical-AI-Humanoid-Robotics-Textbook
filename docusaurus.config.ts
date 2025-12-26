@@ -33,7 +33,12 @@ const config: Config = {
   projectName: 'Physical-AI-Humanoid-Robotics-Textbook', // TODO: Update with your GitHub repo name
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    format: 'detect',
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
