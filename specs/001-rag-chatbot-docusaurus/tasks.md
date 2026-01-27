@@ -19,7 +19,7 @@
 - [X] T073 [US2] Scaffold FastAPI project structure in `backend/`.
 - [X] T074 [US2] Create `backend/src/api/ingest_router.py` with `POST /ingest` endpoint.
 - [X] T075 [US2] Implement `Ingestion Service` logic in `backend/src/services/ingestion.py` to orchestrate cleaning, chunking, embedding, and storage.
-- [X] T076 [US2] Develop a script (`backend/scripts/run_ingestion.py`) to trigger the `/ingest` endpoint and process all `docs/` content.
+- [X] T076 [US2] Create `backend/src/api/ingest_router.py` to trigger the `/ingest` endpoint and process all `docs/` content.
 - [X] T077 [US2] Verify successful ingestion by checking Qdrant and Neon Postgres.
 
 ## Phase 1: Retrieval & Reasoning Backend
@@ -88,4 +88,3 @@
 The implementation will follow an iterative approach, prioritizing core backend functionality (ingestion, retrieval, reasoning) before integrating the frontend and focusing on deployment. Each user story provides an independently testable increment.
 
 **MVP Scope**: Phase 0 and Phase 1, combined with basic deployment of the backend, allowing content ingestion and API-based querying/chat.
-
